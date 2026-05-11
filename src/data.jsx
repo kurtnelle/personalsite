@@ -343,9 +343,9 @@ const SKILLS = [
   { cat: "Embedded",    nm: "I²C" },
   { cat: "Embedded",    nm: "UART" },
 
-  { cat: "Mechanical",  nm: "Fusion 360" },
-  { cat: "Mechanical",  nm: "3D Printing" },
   { cat: "Mechanical",  nm: "Mechanism Design" },
+  { cat: "Mechanical",  nm: "3D Printing" },
+  { cat: "Mechanical",  nm: "SpaceMouse" },
 
   { cat: "Cloud",       nm: "Azure" },
   { cat: "Cloud",       nm: "Azure SQL" },
