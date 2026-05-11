@@ -314,7 +314,7 @@ function KBlazorSection({ theme }) {
     { k: "Card",   base: "kblazor-card",
       caption: "Same data as chips with status colour-coding." },
     { k: "Kanban", base: "kblazor-kanban",
-      caption: "Group by any property — drag between columns." },
+      caption: "Group items by any property. Counts at a glance." },
   ];
   const [view, setView] = useState("Table");
   const current = VIEWS.find((v) => v.k === view) || VIEWS[0];
