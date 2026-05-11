@@ -10,14 +10,13 @@ const SITE = {
 };
 
 const NAV = [
-  { idx: "01", label: "Top",         href: "#top" },
-  { idx: "02", label: "Stack",       href: "#stack" },
-  { idx: "03", label: "KBlazor",     href: "#kblazor" },
-  { idx: "04", label: "Projects",    href: "#projects" },
-  { idx: "05", label: "Engagements", href: "#engagements" },
-  { idx: "06", label: "Skills",      href: "#skills" },
-  { idx: "07", label: "About",       href: "#about" },
-  { idx: "08", label: "Contact",     href: "#contact" },
+  { idx: "01", label: "Top",      href: "#top" },
+  { idx: "02", label: "Stack",    href: "#stack" },
+  { idx: "03", label: "KBlazor",  href: "#kblazor" },
+  { idx: "04", label: "Projects", href: "#projects" },
+  { idx: "05", label: "Skills",   href: "#skills" },
+  { idx: "06", label: "About",    href: "#about" },
+  { idx: "07", label: "Contact",  href: "#contact" },
 ];
 
 const HERO = {
@@ -147,37 +146,6 @@ const KB_ORDERS = [
 const PROJECTS = [
   {
     num: "01",
-    name: "CRUD and Logic",
-    tag: "Modular composable runtime",
-    lede: "A modular architecture platform that decomposes monoliths into isolated, composable logic units — applications as fluid systems rather than static binaries.",
-    features: [
-      "Function-level orchestration",
-      "Pipeline-driven execution",
-      "Runtime hot-swapping",
-      "Memory-mapped communication",
-      "Language-agnostic logic units",
-      "AI-assisted code generation",
-      "Runtime introspection & tracing",
-    ],
-    stack: [".NET 9", "C#", "Pipelines", "IPC", "AI Codegen"],
-  },
-  {
-    num: "02",
-    name: "PolyNC",
-    tag: "CNC & robotics control ecosystem",
-    lede: "Custom motion control built around embedded controllers, distributed CAN bus topology, and a Blazor operator interface — enterprise software practices applied to industrial machine control.",
-    features: [
-      "Embedded motion controllers",
-      "Real-time machine control",
-      "Custom firmware",
-      "Blazor-based operator interfaces",
-      "CAN bus distributed systems",
-      "Advanced kinematics",
-    ],
-    stack: ["STM32", "Blazor", "CAN", "Kinematics", "Real-time"],
-  },
-  {
-    num: "03",
     name: "Receiva",
     tag: "Offline-first field service PWA",
     lede: "Progressive Web App for field service businesses — operates entirely offline, GPS-aware client selection, receipt generation, email queueing, and local-first synchronisation when connectivity returns.",
@@ -192,103 +160,141 @@ const PROJECTS = [
     stack: ["Blazor WASM", "ASP.NET Core", "SQLite", "IndexedDB", "Azure"],
   },
   {
-    num: "04",
-    name: "Pacgrabit",
-    tag: "Workshop memory & planning",
-    lede: "Parts tracking, project shortages, and inventory awareness designed around how workshops actually operate — fast workflows, offline-first, none of the generic ERP overhead.",
+    num: "02",
+    name: "Web Based Statement Generator",
+    tag: "Dec 2022 – Jul 2023",
+    lede: "Web application that ingests Excel data and produces PDF statements bundled into a compressed zip archive — replacing a fragile manual statement-prep process.",
     features: [
-      "Parts tracking",
-      "Project shortages",
-      "Inventory awareness",
-      "Offline-first operation",
-      "Fast workflows for technical environments",
+      "Excel data ingestion",
+      "Per-statement PDF generation",
+      "Compressed zip bundling for hand-off",
+      "Web upload and download flow",
     ],
-    stack: ["Blazor", "SQLite", "PWA", "Offline-first"],
+    stack: ["Blazor", "PDF", "Excel ETL"],
+  },
+  {
+    num: "03",
+    name: "Intra-organisational Order Management",
+    tag: "Sep 2022 – Jan 2023",
+    lede: "Custom integration pulling order data from the organisation's inventory management system into the accounting solution, enforcing complex business rules along the way.",
+    features: [
+      "Inventory → accounting data integration",
+      "Custom business-rule enforcement",
+      "Cross-system reconciliation",
+    ],
+    stack: ["ASP.NET Blazor", "SQL Server"],
+  },
+  {
+    num: "04",
+    name: "Line of Business Scheduling Application",
+    tag: "Oct 2020 – Dec 2021",
+    lede: "Web application for scheduling in-person and virtual meetings as part of a customer's legal medical-compliance workflow.",
+    features: [
+      "In-person + virtual meeting scheduling",
+      "Legal medical-compliance workflow",
+      "Multi-party calendar coordination",
+    ],
+    stack: ["ASP.NET", "Web App"],
+  },
+  {
+    num: "05",
+    name: "KPI Dashboard",
+    tag: "Jan 2019 – Jun 2019",
+    lede: "Implemented complex KPIs in Microsoft Power BI to track critical metrics for the customer's engineering department.",
+    features: [
+      "Complex KPI calculations",
+      "Power BI dashboarding",
+      "Engineering metrics tracking",
+    ],
+    stack: ["Power BI", "KPIs"],
+  },
+  {
+    num: "06",
+    name: "Dynamics CRM → GP Integration",
+    tag: "2016 – 2022",
+    lede: "T-SQL based ETL preparing Microsoft Dynamics CRM data for integration with Dynamics GP. Re-ran year on year as each new business unit was onboarded.",
+    features: [
+      "T-SQL ETL pipelines",
+      "Dynamics CRM → Dynamics GP transformation",
+      "Per business-unit rollout over six years",
+    ],
+    stack: ["T-SQL", "Dynamics CRM", "Dynamics GP", "ETL"],
+  },
+  {
+    num: "07",
+    name: "Desktop Statement Generator",
+    tag: "2018",
+    lede: "Desktop application automating client statement generation — saved the customer weeks of work per quarter and improved their overall product offering.",
+    features: [
+      "Automated statement generation",
+      "Quarterly time-savings",
+      "Desktop client tool",
+    ],
+    stack: [".NET", "Automation"],
+  },
+  {
+    num: "08",
+    name: "Leaderboard & Pre-2000 DB ETL",
+    tag: "2017",
+    lede: "Leaderboard solution built on a pre-2000 database via a custom configurable ETL into a data warehouse — raised client profitability within months and was showcased to peers in the industry.",
+    features: [
+      "Legacy database integration",
+      "Configurable ETL framework",
+      "Data-warehouse loading",
+      "Showcased to industry peers",
+    ],
+    stack: ["ETL", "Data Warehouse", "Reporting"],
+  },
+  {
+    num: "09",
+    name: "Service Complaints in Dynamics CRM",
+    tag: "Jan 2016 – Jan 2017",
+    lede: "Configured Microsoft Dynamics CRM to support a service complaints department's tracking and management of consumer complaints, including a custom complaint-ID scheme the client required.",
+    features: [
+      "Dynamics CRM customisation",
+      "Custom complaint-ID scheme",
+      "Tracking and provider workflow",
+    ],
+    stack: ["Dynamics CRM", "Configuration"],
+  },
+  {
+    num: "10",
+    name: "Credit Card Processing Portal",
+    tag: "2010",
+    lede: "TTD-currency credit card processing web portal for an insurer, plus bank-side download files so the bank could process policyholder credit card payments.",
+    features: [
+      "TTD currency processing",
+      "Insurer-facing web portal",
+      "Bank file generation for downstream processing",
+    ],
+    stack: ["Web Portal", "Payments"],
+  },
+  {
+    num: "11",
+    name: "Financial Compliance Reporting",
+    tag: "2009",
+    lede: "Reporting system verifying that account holders at a financial institution complied with government regulations on source of funds.",
+    features: [
+      "Source-of-funds reporting",
+      "Government-regulation compliance",
+      "Financial-institution rollout",
+    ],
+    stack: ["Compliance", "Reporting"],
+  },
+  {
+    num: "12",
+    name: "Government Candidate Management",
+    tag: "2008",
+    lede: "Two applications enabling end-to-end electronic candidate management for a government organisation — replacing the paper-based hiring process.",
+    features: [
+      "Two-app workflow",
+      "Electronic hiring end-to-end",
+      "Government-org deployment",
+    ],
+    stack: ["Web App", "Workflow"],
   },
 ];
 
-// Client engagements pulled from LinkedIn project history. Listed
-// reverse-chronologically; "skills" are only the chips LinkedIn called
-// out — descriptions stay one tight sentence each.
-const ENGAGEMENTS = [
-  {
-    dates: "Dec 2022 – Jul 2023",
-    name:  "Web Based Statement Generator",
-    org:   null,
-    desc:  "Ingests Excel data and produces PDF statements bundled in a compressed zip archive.",
-    skills: ["Blazor", "PDF", "Excel ETL"],
-  },
-  {
-    dates: "Sep 2022 – Jan 2023",
-    name:  "Intra-organisational Order Management",
-    org:   null,
-    desc:  "Custom integration pulling order data from inventory into accounting under complex organisational business rules.",
-    skills: ["ASP.NET Blazor", "SQL Server"],
-  },
-  {
-    dates: "Oct 2020 – Dec 2021",
-    name:  "Line of Business Scheduling Application",
-    org:   null,
-    desc:  "Web application for scheduling in-person and virtual meetings as part of a medical-compliance workflow.",
-    skills: ["ASP.NET", "Web App"],
-  },
-  {
-    dates: "Jan 2019 – Jun 2019",
-    name:  "KPI Dashboard",
-    org:   null,
-    desc:  "Implemented complex KPIs in Microsoft Power BI to track critical metrics for the customer's engineering department.",
-    skills: ["Power BI", "KPIs"],
-  },
-  {
-    dates: "2016 – 2022",
-    name:  "Dynamics CRM → GP Data Integration",
-    org:   null,
-    desc:  "T-SQL based ETL preparing Dynamics CRM data for integration with Dynamics GP, rolled out per business unit over six years.",
-    skills: ["T-SQL", "Dynamics CRM", "Dynamics GP", "ETL"],
-  },
-  {
-    dates: "2018",
-    name:  "Desktop Statement Generator",
-    org:   null,
-    desc:  "Desktop application automating client statement generation — saved the customer weeks of work per quarter.",
-    skills: [".NET", "Automation"],
-  },
-  {
-    dates: "2017",
-    name:  "Leaderboard & Pre-2000 DB ETL",
-    org:   null,
-    desc:  "Leaderboard built on a pre-2000 database via a custom configurable ETL into a data warehouse; raised client profitability within months.",
-    skills: ["ETL", "Data Warehouse", "Reporting"],
-  },
-  {
-    dates: "Jan 2016 – Jan 2017",
-    name:  "Service Complaints in MS Dynamics CRM",
-    org:   null,
-    desc:  "Configured Dynamics CRM for a service complaints department, including a custom complaint-ID scheme the client required.",
-    skills: ["Dynamics CRM", "Configuration"],
-  },
-  {
-    dates: "2010",
-    name:  "Credit Card Processing Portal",
-    org:   null,
-    desc:  "TTD credit card processing web portal for an insurer, plus bank-side download files for policyholder payment processing.",
-    skills: ["Web Portal", "Payments"],
-  },
-  {
-    dates: "2009",
-    name:  "Financial Compliance Reporting",
-    org:   null,
-    desc:  "Reporting system verifying account-holder compliance with government regulations on source of funds.",
-    skills: ["Compliance", "Reporting"],
-  },
-  {
-    dates: "2008",
-    name:  "Government Candidate Management",
-    org:   null,
-    desc:  "Two applications for end-to-end electronic candidate management for a government organisation's hiring process.",
-    skills: ["Web App", "Workflow"],
-  },
-];
 
 const SKILLS = [
   { cat: "Languages",   nm: "C#" },
@@ -409,6 +415,5 @@ const FOOTER = {
 
 Object.assign(window, {
   SITE, NAV, HERO, TICKER, STACK, KBLAZOR, KB_ORDERS,
-  PROJECTS, ENGAGEMENTS, SKILLS, SERVICES, ABOUT, PHILOSOPHY, FOCUS,
-  CONTACT, FOOTER,
+  PROJECTS, SKILLS, SERVICES, ABOUT, PHILOSOPHY, FOCUS, CONTACT, FOOTER,
 });

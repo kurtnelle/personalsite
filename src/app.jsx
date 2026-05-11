@@ -505,46 +505,6 @@ function Projects() {
   );
 }
 
-// ── Client engagements (timeline) ──────────────────────────────────────────
-function Engagements() {
-  const [showAll, setShowAll] = useState(false);
-  const head = ENGAGEMENTS.slice(0, 5);
-  const tail = ENGAGEMENTS.slice(5);
-  const items = showAll ? ENGAGEMENTS : head;
-  return (
-    <section className="wrap" id="engagements">
-      <div className="sec-label">Engagements · Client work</div>
-      <h2 style={{ marginBottom: 36 }}>
-        Selected client <span className="serif">engagements.</span>
-      </h2>
-      <ol className="eng-list">
-        {items.map((e, i) => (
-          <li className="eng-item reveal" key={e.name}>
-            <div className="eng-dates">{e.dates}</div>
-            <div className="eng-body">
-              <h3 className="eng-name">{e.name}</h3>
-              <p className="eng-desc">{e.desc}</p>
-              <div className="eng-meta">
-                {e.org && <span className="eng-org">{e.org}</span>}
-                {e.skills.map((s) => <span key={s} className="eng-tg">{s}</span>)}
-              </div>
-            </div>
-            <div className="eng-ix">{String(i + 1).padStart(2, "0")}</div>
-          </li>
-        ))}
-      </ol>
-      {tail.length > 0 && (
-        <button className="eng-more"
-                onClick={() => setShowAll(!showAll)}>
-          {showAll
-            ? `Show fewer ▲`
-            : `Show ${tail.length} earlier engagements ▼`}
-        </button>
-      )}
-    </section>
-  );
-}
-
 // ── Skills matrix ──────────────────────────────────────────────────────────
 function Skills() {
   const cats = useMemo(() => ["All", ...Array.from(new Set(SKILLS.map((s) => s.cat)))], []);
@@ -726,7 +686,6 @@ function App() {
         <Stack />
         <KBlazorSection />
         <Projects />
-        <Engagements />
         <Skills />
         <Services />
         <About />
