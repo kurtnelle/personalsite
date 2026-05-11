@@ -34,8 +34,8 @@ const HERO = {
   tag: (
     <>
       I'm a software engineer and systems architect based in Trinidad. I build
-      <strong> both sides of the wire</strong> — the .NET applications that run
-      the business and the embedded systems that run the machines.
+      <strong> both sides of the fiber optic</strong> — the .NET applications
+      that run the business and the embedded systems that run the machines.
     </>
   ),
   meta: [
