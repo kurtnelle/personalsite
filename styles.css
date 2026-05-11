@@ -586,10 +586,12 @@ section:first-of-type { border-top: 0; }
   gap: 28px;
   align-items: start;
   cursor: pointer;
-  transition: padding 0.2s ease;
+  transition: background-color 0.18s ease, color 0.18s ease;
 }
 .proj:last-child { border-bottom: 1px solid var(--line); }
-.proj:hover { padding-left: 12px; padding-right: 12px; }
+.proj:hover { background: color-mix(in oklab, var(--accent) 6%, transparent); }
+.proj:hover .num,
+.proj:hover .toggle { color: var(--accent); }
 @media (max-width: 880px) {
   .proj { grid-template-columns: 1fr; gap: 12px; }
 }
@@ -1039,7 +1041,6 @@ footer {
 
   /* Projects */
   .proj { gap: 10px; padding: 22px 0; }
-  .proj:hover { padding-left: 0; padding-right: 0; }
   .proj .title h3 { font-size: clamp(24px, 7vw, 34px); }
   .proj .num { padding-top: 0; }
   .proj .toggle { padding-top: 0; }
