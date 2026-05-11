@@ -26,6 +26,52 @@
   <meta name="twitter:description" content="I build both sides of the fiber optic. .NET, Blazor, embedded firmware, industrial automation. Shipping production software since 2003." />
   <meta name="twitter:image" content="https://shawnklewis.com/assets/og-card.jpg" />
 
+  <!-- JSON-LD structured data: Person + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://shawnklewis.com/#person",
+        "name": "Shawn K. Lewis",
+        "alternateName": "Shawn Lewis",
+        "url": "https://shawnklewis.com/",
+        "image": "https://shawnklewis.com/assets/profile.jpg",
+        "jobTitle": "Software Engineer / Systems Architect",
+        "description": "Software engineer and systems architect based in Trinidad & Tobago. Builds both sides of the fiber optic — the .NET applications that run the business and the embedded systems that run the machines. Shipping production software since 2003.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Port of Spain",
+          "addressCountry": "TT"
+        },
+        "knowsAbout": [
+          ".NET", "C#", "Blazor", "ASP.NET Core",
+          "Embedded Systems", "STM32", "CAN Bus", "Industrial Automation",
+          "ETL", "Offline-First Software", "Mechanism Design",
+          "Systems Architecture"
+        ],
+        "sameAs": [
+          "https://github.com/kurtnelle",
+          "https://www.linkedin.com/in/kurtnelle",
+          "https://kblazor.com",
+          "https://kurtnelle.pixieset.com/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://shawnklewis.com/#website",
+        "url": "https://shawnklewis.com/",
+        "name": "Shawn K. Lewis",
+        "description": "Personal site of Shawn K. Lewis — software engineer and systems architect, Trinidad & Tobago.",
+        "author": { "@id": "https://shawnklewis.com/#person" },
+        "publisher": { "@id": "https://shawnklewis.com/#person" },
+        "inLanguage": "en"
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
