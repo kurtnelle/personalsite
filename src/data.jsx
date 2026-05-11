@@ -92,7 +92,7 @@ const STACK = [
   { num: "L07", name: "Enterprise Backend",      sub: ".NET 10 · ASP.NET Core · APIs" },
   { num: "L06", name: "Blazor PWA Surface",      sub: "WASM · Offline · IndexedDB" },
   { num: "L05", name: "AI-Augmented Layer",      sub: "Codegen · Workflow automation" },
-  { num: "L04", name: "Data & ETL",              sub: "PostgreSQL · Reconciliation" },
+  { num: "L04", name: "Data & ETL",              sub: "PostgreSQL · SQL Server · Reconciliation" },
   { num: "L03", name: "Embedded Linux",          sub: "Edge gateways · IPC bridges" },
   { num: "L02", name: "Microcontroller Firmware",sub: "STM32 · TinyCLR · Real-time" },
   { num: "L01", name: "Bus & I/O",               sub: "CAN · SPI · I²C · UART" },
