@@ -565,9 +565,9 @@ function About() {
             <a className="about-aside-link"
                href="https://kurtnelle.pixieset.com/"
                target="_blank" rel="noreferrer">
-              Photography and videography
+              Photography and Videography
             </a>
-            . You've got to enjoy the{" "}
+            {" "}are an active part of my life. You've got to enjoy the{" "}
             <span className="serif about-aside-grind">grind</span>.
           </span>
         </figcaption>

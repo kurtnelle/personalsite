@@ -1051,18 +1051,16 @@ section:first-of-type { border-top: 0; }
   line-height: 1.55;
   color: var(--text);
 }
+/* Label inherits the body font/size — only the colour distinguishes
+   it from the body text, so the caption reads as one continuous line. */
 .about-aside-lab {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-2);
   margin-right: 4px;
 }
 .about-aside-sep {
   color: var(--muted);
   margin: 0 10px 0 4px;
-  font-family: var(--f-mono);
+  font-weight: 400;
 }
 .about-aside-tx { color: var(--text); }
 .about-aside-link {
