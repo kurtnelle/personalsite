@@ -970,6 +970,19 @@ section:first-of-type { border-top: 0; }
   color: var(--muted);
   opacity: 0.5;
 }
+/* Skill chips that link to an external explanation — chase the arrow. */
+.skill-link { color: inherit; text-decoration: none; }
+.skill-arr {
+  color: var(--accent);
+  margin-left: 4px;
+  font-family: var(--f-mono);
+  font-size: 0.82em;
+  transition: transform 0.18s ease;
+  display: inline-block;
+}
+.skill-link:hover { background: color-mix(in oklab, var(--accent) 6%, transparent); }
+.skill-link:hover .nm { color: var(--accent); }
+.skill-link:hover .skill-arr { transform: translateX(3px); }
 
 /* =========================================================
    Services

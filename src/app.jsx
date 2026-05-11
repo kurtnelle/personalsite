@@ -498,13 +498,21 @@ function Skills() {
       <div className="skills-grid">
         {SKILLS.map((s, i) => {
           const hide = cat !== "All" && s.cat !== cat;
-          return (
-            <div key={s.nm} className={"skill" + (hide ? " hidden" : "")}>
+          const inner = (
+            <>
               <div className="cat">{s.cat}</div>
-              <div className="nm">{s.nm}</div>
+              <div className="nm">
+                {s.nm}
+                {s.url && <span className="skill-arr" aria-hidden="true"> →</span>}
+              </div>
               <div className="ix">{String(i + 1).padStart(2, "0")}</div>
-            </div>
+            </>
           );
+          const cls = "skill" + (s.url ? " skill-link" : "") + (hide ? " hidden" : "");
+          return s.url
+            ? <a key={s.nm} className={cls} href={s.url}
+                 target="_blank" rel="noreferrer">{inner}</a>
+            : <div key={s.nm} className={cls}>{inner}</div>;
         })}
       </div>
     </section>

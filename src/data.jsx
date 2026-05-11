@@ -345,7 +345,8 @@ const SKILLS = [
 
   { cat: "Mechanical",  nm: "Mechanism Design" },
   { cat: "Mechanical",  nm: "3D Printing" },
-  { cat: "Mechanical",  nm: "SpaceMouse" },
+  { cat: "Mechanical",  nm: "SpaceMouse",
+    url: "https://3dconnexion.com/us/spacemouse-3d-mouse/" },
 
   { cat: "Cloud",       nm: "Azure" },
   { cat: "Cloud",       nm: "Azure SQL" },
