@@ -551,7 +551,7 @@ function About() {
              alt="Black-and-white photo of a Ninja coffee machine — the word 'grind' visible on the touch panel"
              loading="lazy" />
         <figcaption>
-          <span className="about-aside-lab">Outside the keyboard</span>
+          <span className="about-aside-lab">Away from the keyboard</span>
           <span className="about-aside-tx">
             Photography and videography. There's a channel —{" "}
             <em>Trini Inside and Out</em>. You've got to enjoy the{" "}
