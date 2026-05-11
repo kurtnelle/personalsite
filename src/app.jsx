@@ -554,7 +554,12 @@ function About() {
           <span className="about-aside-lab">Away from the keyboard</span>
           <span className="about-aside-sep" aria-hidden="true">/</span>
           <span className="about-aside-tx">
-            Photography and videography. You've got to enjoy the{" "}
+            <a className="about-aside-link"
+               href="https://kurtnelle.pixieset.com/"
+               target="_blank" rel="noreferrer">
+              Photography and videography
+            </a>
+            . You've got to enjoy the{" "}
             <span className="serif about-aside-grind">grind</span>.
           </span>
         </figcaption>

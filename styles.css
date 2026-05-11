@@ -1047,6 +1047,18 @@ section:first-of-type { border-top: 0; }
   font-family: var(--f-mono);
 }
 .about-aside-tx { color: var(--text); }
+.about-aside-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.18s ease, color 0.18s ease;
+}
+.about-aside-link:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
 .about-aside-grind {
   font-size: 1.45em;
   color: var(--accent);
