@@ -33,17 +33,17 @@ const HERO = {
   ],
   tag: (
     <>
-      I build <strong>software and hardware systems</strong> that bridge the gap
-      between enterprise applications, industrial automation, and intelligent
-      embedded devices — from offline-first business platforms to custom
-      robotics architectures, designed to be modular, scalable, and shipped.
+      I'm a software engineer and systems architect based in Trinidad. I build
+      <strong> both sides of the wire</strong> — the .NET applications that run
+      the business and the embedded systems that run the machines.
     </>
   ),
   meta: [
-    { k: "ROLE",    v: "Engineer / Architect" },
-    { k: "BASE",    v: "Port of Spain, TT" },
-    { k: "STACK",   v: ".NET · Blazor · Embedded" },
-    { k: "STATUS",  v: "Available" },
+    { k: "ROLE",  v: "Engineer · Architect" },
+    { k: "BASE",  v: "Port of Spain, T&T" },
+    { k: "SINCE", v: "2003 · MS stack" },
+    { k: "BUILD", v: "KBlazor · automation · PWAs" },
+    { k: "AVAIL", v: "Selected · Q3 2026" },
   ],
 };
 
@@ -340,9 +340,9 @@ const SERVICES = [
 
 const ABOUT = {
   paragraphs: [
-    <>I'm a multidisciplinary software engineer and systems architect based in <strong>Trinidad &amp; Tobago</strong>, with experience spanning enterprise software, embedded systems, robotics, industrial automation, and AI-assisted development.</>,
-    <>My work focuses on building practical systems that solve operational problems while remaining maintainable, scalable, and extensible long-term. I've shipped everything from enterprise ETL and reconciliation platforms to custom CNC and robotics architectures.</>,
-    <>I enjoy difficult engineering problems — especially where software, hardware, networking, and automation intersect.</>,
+    <>I'm a software engineer and systems architect based in <strong>Trinidad &amp; Tobago</strong>. I've been shipping production software on the Microsoft stack since <strong>2003</strong> — over two decades through VB.NET, SharePoint workflows, ASP.NET, BI / ETL pipelines, Blazor, and the embedded firmware that talks to all of it.</>,
+    <>The work I do best sits where most teams have a seam: enterprise applications on one side, the physical machines and instruments they depend on the other. I design for the seam. ETL platforms, reconciliation systems, CNC and robotics architectures, offline-first PWAs, motion controllers — same engineer, same toolbox.</>,
+    <>I enjoy problems where software, hardware, networking, and automation have to agree on something — and where being wrong has consequences in the real world.</>,
     <em className="serif">And every brilliant idea belongs to God first.</em>,
   ],
 };
