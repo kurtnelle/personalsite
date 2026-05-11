@@ -51,7 +51,7 @@ const ORIGIN = {
   caption: "Present-day bench. Some of the same chips. Some of the same friends.",
   paragraphs: [
     <><strong>Hardware came first.</strong> In the early 2000s a friend and I built our own PIC16 programmer from a published schematic — the commercial one from Microchip wasn't reachable from where we were — and programmed our first chips in assembly. I still have that board. It kept an ember alive through years of writing Visual Basic and SharePoint workflows by day.</>,
-    <>A LEGO Mindstorms kit, picked up at MicroCenter in Cambridge, turned the ember into a flame. Then GHI Electronics released the FEZ family — managed C# running on bare metal — and suddenly I had a way to be in both worlds at once. I've been on their forums and shipping their boards ever since.</>,
+    <>A LEGO Mindstorms kit, picked up at MicroCenter in Cambridge, turned the ember into a flame. Then GHI Electronics released the FEZ family — managed C# running on bare metal — and suddenly I had a way to be in both worlds at once. I've been on their forums and using their boards ever since. No one local has commissioned a commercial embedded product from me yet — the market here is risk-averse — but the work has stayed alive on the bench, and the capability is ready when it's asked for.</>,
   ],
 };
 
