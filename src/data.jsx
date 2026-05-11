@@ -47,7 +47,7 @@ const HERO = {
 };
 
 const ORIGIN = {
-  caption: "Present-day bench. Some of the same chips. Some of the same friends.",
+  caption: "Present-day bench. Some of the same chips, some of the same friends. The white sphere in back is a coaxial spherical parallel manipulator — printed, not yet assembled.",
   paragraphs: [
     <><strong>Hardware came first.</strong> In the early 2000s a friend and I built our own PIC16 programmer from a published schematic — the commercial one from Microchip wasn't reachable from where we were — and programmed our first chips in assembly. I still have that board. It kept an ember alive through years of writing Visual Basic and SharePoint workflows by day.</>,
     <>A LEGO Mindstorms kit, picked up at MicroCenter in Cambridge, turned the ember into a flame. Then GHI Electronics released the FEZ family — managed C# running on bare metal — and suddenly I had a way to be in both worlds at once. I've been on their forums and using their boards ever since. My L6470 stepper-driver code has shipped in a commercial product in Florida — handed off to a friend who needed it to close out a project. Locally though, no one has commissioned a full embedded build from me directly yet; the market here is risk-averse, and the bench has stayed alive regardless.</>,
@@ -342,6 +342,10 @@ const SKILLS = [
   { cat: "Embedded",    nm: "SPI" },
   { cat: "Embedded",    nm: "I²C" },
   { cat: "Embedded",    nm: "UART" },
+
+  { cat: "Mechanical",  nm: "Fusion 360" },
+  { cat: "Mechanical",  nm: "3D Printing" },
+  { cat: "Mechanical",  nm: "Mechanism Design" },
 
   { cat: "Cloud",       nm: "Azure" },
   { cat: "Cloud",       nm: "Azure SQL" },
