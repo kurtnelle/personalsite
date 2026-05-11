@@ -2,7 +2,7 @@
 // Loaded via <script type="text/babel"> so top-level consts live on window scope.
 
 const SITE = {
-  name: "Shawn K. Lewis",
+  name: "Shawn Kurtnelle Lewis",
   brand: "SKL",
   role: "Software Engineer · Systems Architect",
   location: "Port of Spain, Trinidad & Tobago",
