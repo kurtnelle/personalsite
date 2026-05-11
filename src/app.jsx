@@ -228,21 +228,21 @@ function Origin() {
 function Stack() {
   return (
     <section className="wrap" id="stack">
-      <div className="sec-label">Stack · Layered architecture</div>
+      <div className="sec-label">Systems Engineering · End-to-end</div>
       <div className="stack">
         <div className="stack-copy reveal">
           <h2>
-            Eight layers. <span className="serif">One mind.</span>
+            Every layer. <span className="serif">Same engineer.</span>
           </h2>
           <p>
-            I work top-to-bottom — from Azure infrastructure down to the bus
-            wires soldered onto an STM32. The seams between layers are where
-            most projects fail; that's where I spend my time.
+            From the Azure region to the bus wires soldered onto an STM32, I
+            work every layer in the diagram on the right. The seams between
+            layers are where most projects fail — that's where I spend my time.
           </p>
           <p>
-            Every system I ship treats hardware and software as a single
-            design problem, not two adjacent teams sliding tickets at each
-            other.
+            I design hardware and software as a <strong>single problem</strong>,
+            not as two teams sliding tickets across an org chart. The result is
+            systems that survive contact with the real world.
           </p>
         </div>
         <div className="stack-vis reveal">
@@ -257,6 +257,15 @@ function Stack() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="sys-caps reveal">
+        {SYSTEMS_CAPS.map((c) => (
+          <div className="it" key={c.h}>
+            <div className="lab">{c.lab}</div>
+            <h4>{c.h}</h4>
+            <p>{c.p}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

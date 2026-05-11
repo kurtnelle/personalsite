@@ -647,6 +647,49 @@ section:first-of-type { border-top: 0; }
   background: var(--bg-2);
 }
 
+/* Systems-engineering capability cards (sits under the stack diagram) */
+.sys-caps {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line-soft);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.sys-caps .it {
+  background: var(--bg);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sys-caps .it .lab {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.sys-caps .it h4 {
+  font-size: 17px;
+  letter-spacing: -0.012em;
+  margin: 0;
+}
+.sys-caps .it p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  margin: 4px 0 0;
+}
+@media (max-width: 880px) {
+  .sys-caps { grid-template-columns: repeat(2, 1fr); margin-top: 40px; }
+}
+@media (max-width: 480px) {
+  .sys-caps { grid-template-columns: 1fr; }
+}
+
 /* KBlazor feature row */
 .kb-features {
   margin-top: 36px;

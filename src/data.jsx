@@ -61,6 +61,32 @@ const TICKER = [
   "AI-Augmented Pipelines", "Custom Hardware Integration",
 ];
 
+// Capability cards under the stack diagram — each one maps to actual
+// portfolio work so it reads as a menu of things I've already shipped,
+// not aspirations.
+const SYSTEMS_CAPS = [
+  {
+    lab: "Industrial HMI",
+    h:   "Blazor operator interfaces",
+    p:   "Touch-first front-ends that talk directly to real machines — buttons, alarms, motion plots, recipe management.",
+  },
+  {
+    lab: "Motion Control",
+    h:   "Firmware up",
+    p:   "Stepper / servo control, kinematics, L6470 drivers, CAN bus topologies, deterministic real-time loops on STM32.",
+  },
+  {
+    lab: "Floor ↔ Office",
+    h:   "Enterprise data bridges",
+    p:   "ETL pipelines, reconciliation, and SCADA-to-ERP integrations that keep operational data trustworthy across the seam.",
+  },
+  {
+    lab: "Offline-first",
+    h:   "Field operations software",
+    p:   "PWAs and local-first tools that work without the network, sync cleanly when it returns, and survive unscheduled power cuts.",
+  },
+];
+
 const STACK = [
   { num: "L08", name: "Cloud & Infrastructure",  sub: "Azure · Cloudflare · CI/CD" },
   { num: "L07", name: "Enterprise Backend",      sub: ".NET 9 · ASP.NET Core · APIs" },
@@ -409,6 +435,6 @@ const FOOTER = {
 };
 
 Object.assign(window, {
-  SITE, NAV, HERO, ORIGIN, TICKER, STACK, KBLAZOR, KB_ORDERS,
+  SITE, NAV, HERO, ORIGIN, TICKER, STACK, SYSTEMS_CAPS, KBLAZOR, KB_ORDERS,
   PROJECTS, SKILLS, SERVICES, ABOUT, PHILOSOPHY, FOCUS, CONTACT, FOOTER,
 });
