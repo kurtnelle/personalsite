@@ -164,9 +164,23 @@ function Hero() {
   );
 }
 
-// SVG monogram standing in for a portrait — schematic, on-brand,
-// swappable for an actual image later by replacing this component.
+// Portrait — uses assets/profile.jpg. If the image fails to load,
+// falls back to an on-brand SKL monogram so the card never breaks.
 function Monogram() {
+  const [failed, setFailed] = useState(false);
+  if (!failed) {
+    return (
+      <div className="photo" style={{
+        backgroundImage: "url('assets/profile.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center 28%",
+      }}>
+        <img src="assets/profile.jpg" alt="Shawn K. Lewis"
+             onError={() => setFailed(true)}
+             style={{ display: "none" }} />
+      </div>
+    );
+  }
   return (
     <div className="photo" style={{
       display: "flex", alignItems: "center", justifyContent: "center",
