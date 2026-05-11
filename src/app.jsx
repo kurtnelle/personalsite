@@ -294,6 +294,18 @@ function KBlazorSection({ theme }) {
           <div style={{ marginTop: 8 }}>FlexTable · BasicEdit · DatePicker</div>
         </div>
       </div>
+      <p className="kb-lede">
+        A multi-view data architecture for Blazor.
+        One <code>IQueryable&lt;T&gt;</code> renders simultaneously as
+        Table, Card, or Kanban — without rewriting the data layer.
+      </p>
+      <div className="kb-install" role="group" aria-label="Install KBlazor">
+        <span className="kb-install-prompt">$</span>
+        <code>dotnet add package KBlazor</code>
+        <a className="kb-install-link"
+           href="https://www.nuget.org/packages?q=KBlazor"
+           target="_blank" rel="noreferrer">nuget →</a>
+      </div>
 
       <div className="kb-grid">
         <div className="code-card reveal">

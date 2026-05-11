@@ -31,16 +31,20 @@
 }
 
 html[data-theme="light"] {
-  --bg:        oklch(0.985 0.004 85);
-  --bg-2:      oklch(0.96 0.006 85);
-  --surface:   oklch(0.99 0.003 85);
-  --line:      oklch(0.86 0.008 85);
-  --line-soft: oklch(0.92 0.006 85);
-  --text:      oklch(0.18 0.012 250);
-  --text-2:    oklch(0.32 0.012 250);
-  --muted:     oklch(0.48 0.012 250);
-  --accent:    oklch(0.62 0.16 55);
-  --accent-ink: oklch(0.98 0.01 75);
+  /* Warmer paper-cream base — pulls hue toward 75 (warm yellow) and
+     softens contrast so the page feels editorial rather than docs-y. */
+  --bg:        oklch(0.972 0.012 80);
+  --bg-2:      oklch(0.945 0.018 78);
+  --surface:   oklch(0.985 0.010 80);
+  --line:      oklch(0.84 0.014 78);
+  --line-soft: oklch(0.91 0.012 78);
+  /* Text leans slightly warm too, so it doesn't read as cold-grey on cream */
+  --text:      oklch(0.20 0.018 70);
+  --text-2:    oklch(0.36 0.014 70);
+  --muted:     oklch(0.50 0.012 70);
+  /* Richer accent — bump chroma so it carries through warm bg */
+  --accent:    oklch(0.60 0.18 50);
+  --accent-ink: oklch(0.985 0.010 80);
   --signal-grn: oklch(0.55 0.16 145);
   --signal-red: oklch(0.55 0.20 25);
 }
@@ -109,6 +113,9 @@ h3 { font-size: clamp(22px, 2.0vw, 28px); line-height: 1.15; }
 h4 { font-size: 16px; line-height: 1.25; letter-spacing: 0; }
 
 .serif { font-family: var(--f-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+/* Inside section h2s, ease the serif accent down so it complements
+   rather than out-shouts the surrounding sans. */
+h2 .serif { font-size: 0.94em; }
 .mono  { font-family: var(--f-mono); font-feature-settings: "calt" 1; }
 
 p { margin: 0; color: var(--text-2); text-wrap: pretty; }
@@ -186,7 +193,7 @@ section:first-of-type { border-top: 0; }
 /* =========================================================
    Hero
    ========================================================= */
-.hero { padding-top: clamp(60px, 8vw, 100px); padding-bottom: clamp(60px, 8vw, 100px); }
+.hero { padding-top: clamp(80px, 10vw, 140px); padding-bottom: clamp(80px, 10vw, 140px); }
 .hero-status {
   display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
   font-family: var(--f-mono);
@@ -194,7 +201,7 @@ section:first-of-type { border-top: 0; }
   letter-spacing: 0.08em;
   color: var(--muted);
   text-transform: uppercase;
-  margin-bottom: 48px;
+  margin-bottom: 64px;
 }
 .hero-status .pill {
   display: inline-flex; align-items: center; gap: 8px;
@@ -223,15 +230,15 @@ section:first-of-type { border-top: 0; }
   color: transparent;
 }
 .hero-tag {
-  margin-top: 36px;
+  margin-top: 48px;
   max-width: 56ch;
   font-size: clamp(17px, 1.4vw, 19px);
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--text-2);
 }
 .hero-tag strong { color: var(--text); font-weight: 500; }
 
-.hero-actions { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; }
+.hero-actions { display: flex; gap: 12px; margin-top: 52px; flex-wrap: wrap; }
 
 .btn {
   display: inline-flex; align-items: center; gap: 10px;
@@ -404,6 +411,54 @@ section:first-of-type { border-top: 0; }
   background: var(--bg-2);
 }
 .pkg-head .meta .badge.amber { border-color: var(--accent); color: var(--accent); }
+
+/* KBlazor framing — lede explains the architecture, install line gives
+   credibility (the package is real and you can copy/paste it). */
+.kb-lede {
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 68ch;
+  color: var(--text-2);
+  margin: -16px 0 24px;
+}
+.kb-lede code {
+  font-family: var(--f-mono);
+  font-size: 13.5px;
+  padding: 2px 6px;
+  background: var(--bg-2);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  color: var(--accent);
+}
+.kb-install {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 32px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-family: var(--f-mono);
+  font-size: 13px;
+}
+.kb-install-prompt { color: var(--muted); }
+.kb-install code {
+  font-family: inherit;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.kb-install-link {
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-left: 8px;
+  border-left: 1px solid var(--line-soft);
+}
+.kb-install-link:hover { text-decoration: underline; }
 
 .kb-grid {
   display: grid;
