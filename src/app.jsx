@@ -536,6 +536,9 @@ function Contact() {
   return (
     <section className="wrap contact" id="contact">
       <div className="sec-label">Contact · Say hello</div>
+      <p className="contact-sig">
+        I build on both sides of the <span className="serif">fiber optic.</span>
+      </p>
       <h2>
         Let's build <span className="serif">something.</span>
       </h2>
