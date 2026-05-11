@@ -303,7 +303,7 @@ const SKILLS = [
   { cat: "Languages",   nm: "JavaScript" },
   { cat: "Languages",   nm: "HTML / CSS" },
 
-  { cat: "Frameworks",  nm: ".NET 9" },
+  { cat: "Frameworks",  nm: ".NET Latest" },
   { cat: "Frameworks",  nm: "ASP.NET Core" },
   { cat: "Frameworks",  nm: "Blazor" },
   { cat: "Frameworks",  nm: "Avalonia" },

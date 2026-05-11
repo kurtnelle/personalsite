@@ -35,8 +35,8 @@ function useTheme() {
     try {
       return localStorage.getItem("skl.theme")
         || document.documentElement.getAttribute("data-theme")
-        || "dark";
-    } catch (e) { return "dark"; }
+        || "light";
+    } catch (e) { return "light"; }
   });
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -259,34 +259,21 @@ function Stack() {
 }
 
 // ── KBlazor showcase ───────────────────────────────────────────────────────
-function KBlazorSection() {
+// Right side shows real screenshots from kblazor.com cycling through the
+// three view modes — the fake React table would only ever look like a fake
+// React table, so honesty wins.
+function KBlazorSection({ theme }) {
+  const VIEWS = [
+    { k: "Table",  base: "kblazor-table",
+      caption: "Sort, filter, paginate. Saved views per user." },
+    { k: "Card",   base: "kblazor-card",
+      caption: "Same data as chips with status colour-coding." },
+    { k: "Kanban", base: "kblazor-kanban",
+      caption: "Group by any property — drag between columns." },
+  ];
   const [view, setView] = useState("Table");
-  const [q, setQ] = useState("");
-  const [sortKey, setSortKey] = useState("id");
-  const [sortDir, setSortDir] = useState(1);
-
-  const sortBy = (k) => {
-    if (k === sortKey) setSortDir(-sortDir);
-    else { setSortKey(k); setSortDir(1); }
-  };
-
-  const rows = useMemo(() => {
-    const filtered = KB_ORDERS.filter((r) => {
-      if (!q) return true;
-      const s = q.toLowerCase();
-      return r.id.toLowerCase().includes(s)
-          || r.customer.toLowerCase().includes(s);
-    });
-    return filtered.slice().sort((a, b) => {
-      const av = a[sortKey], bv = b[sortKey];
-      if (av < bv) return -1 * sortDir;
-      if (av > bv) return  1 * sortDir;
-      return 0;
-    });
-  }, [q, sortKey, sortDir]);
-
-  const money = (n) => "$" + n.toLocaleString("en-US",
-    { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const current = VIEWS.find((v) => v.k === view) || VIEWS[0];
+  const shotSrc = `assets/${current.base}-${theme === "light" ? "light" : "dark"}.jpg`;
 
   return (
     <section className="wrap" id="kblazor">
@@ -332,111 +319,32 @@ function KBlazorSection() {
         <div className="demo-card reveal">
           <div className="dc-head">
             <span className="lights"><i /><i /><i /></span>
-            <span>Live preview</span>
-            <span className="name">FlexTable</span>
+            <span>From kblazor.com</span>
+            <span className="name">FlexTable · {view}</span>
           </div>
           <div className="dc-body">
             <div className="dc-toolbar">
-              <input value={q} placeholder="Search invoices…"
-                     onChange={(e) => setQ(e.target.value)} />
-              {["Table", "Card", "Kanban"].map((v) => (
-                <button key={v}
-                        className={"chip" + (view === v ? " on" : "")}
-                        onClick={() => setView(v)}>{v}</button>
+              {VIEWS.map((v) => (
+                <button key={v.k}
+                        className={"chip" + (view === v.k ? " on" : "")}
+                        onClick={() => setView(v.k)}>{v.k}</button>
               ))}
+              <a className="chip"
+                 style={{ marginLeft: "auto" }}
+                 href="https://kblazor.com"
+                 target="_blank" rel="noreferrer">
+                View live →
+              </a>
             </div>
-
-            {view === "Table" && (
-              <table className="dc-table">
-                <thead><tr>
-                  {[
-                    ["id", "Invoice"], ["customer", "Customer"],
-                    ["amount", "Amount"], ["due", "Due"], ["status", "Status"],
-                  ].map(([k, label]) => (
-                    <th key={k} onClick={() => sortBy(k)}>
-                      {label}
-                      {sortKey === k && (
-                        <span className="sort">{sortDir > 0 ? "↑" : "↓"}</span>
-                      )}
-                    </th>
-                  ))}
-                </tr></thead>
-                <tbody>
-                  {rows.map((r) => (
-                    <tr key={r.id}>
-                      <td className="mono">{r.id}</td>
-                      <td>{r.customer}</td>
-                      <td className="mono" style={{ textAlign: "right" }}>{money(r.amount)}</td>
-                      <td className="mono">{r.due}</td>
-                      <td><span className={"status " + r.status}>● {r.status}</span></td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
-
-            {view === "Card" && (
-              <div style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-                gap: 1, background: "var(--line-soft)",
-              }}>
-                {rows.map((r) => (
-                  <div key={r.id} style={{
-                    background: "var(--bg)", padding: "14px 16px",
-                    display: "flex", flexDirection: "column", gap: 4,
-                  }}>
-                    <div className="mono" style={{ fontSize: 11, color: "var(--muted)" }}>{r.id}</div>
-                    <div style={{ fontSize: 15, fontWeight: 500 }}>{r.customer}</div>
-                    <div className="mono" style={{ fontSize: 13, color: "var(--text-2)" }}>
-                      {money(r.amount)} · due {r.due}
-                    </div>
-                    <span className={"status " + r.status} style={{ marginTop: 4, alignSelf: "flex-start" }}>● {r.status}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {view === "Kanban" && (
-              <div style={{
-                display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
-                gap: 1, background: "var(--line-soft)",
-              }}>
-                {[
-                  ["ok",   "On track"],
-                  ["warn", "At risk"],
-                  ["err",  "Overdue"],
-                ].map(([k, label]) => (
-                  <div key={k} style={{
-                    background: "var(--bg)", padding: "12px 12px 16px",
-                    display: "flex", flexDirection: "column", gap: 8,
-                    minHeight: 220,
-                  }}>
-                    <div className="mono" style={{
-                      fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase",
-                      color: "var(--muted)", paddingBottom: 6,
-                      borderBottom: "1px dashed var(--line-soft)",
-                    }}>{label} · {rows.filter((r) => r.status === k).length}</div>
-                    {rows.filter((r) => r.status === k).map((r) => (
-                      <div key={r.id} style={{
-                        padding: "10px 12px", border: "1px solid var(--line)",
-                        borderRadius: "var(--radius)", background: "var(--surface)",
-                        display: "flex", flexDirection: "column", gap: 2,
-                      }}>
-                        <div style={{ fontSize: 13, fontWeight: 500 }}>{r.customer}</div>
-                        <div className="mono" style={{ fontSize: 11, color: "var(--muted)" }}>
-                          {r.id} · {money(r.amount)}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            )}
+            <div className="kb-shot-wrap">
+              <img className="kb-shot" src={shotSrc}
+                   alt={`KBlazor FlexTable in ${view} view (${theme})`}
+                   loading="lazy" />
+            </div>
           </div>
           <div className="dc-foot">
-            <span>{rows.length} of {KB_ORDERS.length}</span>
-            <span>{view.toUpperCase()} view · live</span>
+            <span>{current.caption}</span>
+            <span>{view.toUpperCase()} view</span>
           </div>
         </div>
       </div>
@@ -544,7 +452,7 @@ function Services() {
     <section className="wrap" id="services">
       <div className="sec-label">Services · How I help</div>
       <h2 style={{ marginBottom: 36 }}>
-        Six ways to <span className="serif">put me to work.</span>
+        Six ways to <span className="serif">attract my attention.</span>
       </h2>
       <div className="svc-grid">
         {SERVICES.map((s) => (
@@ -685,7 +593,7 @@ function App() {
         <Hero />
         <Ticker />
         <Stack />
-        <KBlazorSection />
+        <KBlazorSection theme={theme} />
         <Projects />
         <Skills />
         <Services />
