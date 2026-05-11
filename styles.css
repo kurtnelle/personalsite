@@ -937,3 +937,147 @@ footer {
   pointer-events: none;
   mask-image: linear-gradient(to bottom right, black, transparent 80%);
 }
+
+/* =========================================================
+   Responsive — tablet (< 880px) supplements
+   The base CSS already collapses most grids at 880px;
+   this section tightens spacing for that breakpoint.
+   ========================================================= */
+@media (max-width: 880px) {
+  .pkg-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .pkg-head .meta {
+    text-align: left;
+    white-space: normal;
+  }
+  .skills-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .topnav-row { gap: 16px; flex-wrap: wrap; }
+}
+
+/* =========================================================
+   Responsive — phone (< 720px)
+   ========================================================= */
+@media (max-width: 720px) {
+  /* Tighter section rhythm so the page doesn't feel like a tower */
+  section { padding: 64px 0; }
+  .sec-label { margin-bottom: 20px; }
+
+  /* Top nav — drop the slash detail and the numeric idx prefixes, wrap */
+  .topnav-row { padding: 12px 0; }
+  .brand .slash, .brand .slash + span { display: none; }
+  .nav-links { font-size: 11px; gap: 2px; flex-wrap: wrap; justify-content: flex-end; }
+  .nav-links a { padding: 6px 8px; }
+  .nav-links a .idx { display: none; }
+
+  /* Hero */
+  h1 { font-size: clamp(38px, 12vw, 64px); line-height: 0.98; }
+  .hero { padding-top: 40px; padding-bottom: 56px; }
+  .hero-status { gap: 8px; margin-bottom: 32px; }
+  .hero-status .pill { padding: 4px 9px; font-size: 10px; }
+  .hero-tag { margin-top: 24px; font-size: 16px; }
+  .hero-actions { margin-top: 28px; gap: 10px; }
+  .btn { padding: 11px 14px; font-size: 11px; }
+
+  /* Hero portrait card — make it less dominant */
+  .hero-card { padding: 14px; }
+
+  /* Ticker — gentler */
+  .ticker { padding: 14px 0; }
+  .ticker-row { gap: 36px; font-size: 12px; animation-duration: 45s; }
+
+  /* Stack diagram — shrink the L0X column */
+  .stack-layer {
+    grid-template-columns: 48px 1fr auto;
+    padding: 14px 14px;
+    gap: 10px;
+  }
+  .stack-layer .name { font-size: 15px; }
+  .stack-copy p { font-size: 15px; }
+
+  /* KBlazor showcase */
+  .cc-body { font-size: 11px; padding: 14px 12px; line-height: 1.55; }
+  .cc-body .ln { grid-template-columns: 22px 1fr; gap: 6px; }
+  .dc-table { font-size: 12px; }
+  .dc-table thead th { padding: 8px 10px; font-size: 10px; }
+  .dc-table tbody td { padding: 9px 10px; }
+  .dc-toolbar { padding: 10px 10px; gap: 6px; }
+  .dc-toolbar .chip { padding: 6px 8px; font-size: 10px; }
+  .kb-features { grid-template-columns: 1fr; }
+  .kb-features .it { padding: 18px; }
+
+  /* Projects */
+  .proj { gap: 10px; padding: 22px 0; }
+  .proj:hover { padding-left: 0; padding-right: 0; }
+  .proj .title h3 { font-size: clamp(24px, 7vw, 34px); }
+  .proj .num { padding-top: 0; }
+  .proj .toggle { padding-top: 0; }
+  .proj-expand-inner { padding: 20px; gap: 20px; }
+
+  /* Skills */
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .skill { padding: 16px; min-height: 100px; }
+  .skill .nm { font-size: 16px; }
+  .skills-filter { font-size: 10px; }
+
+  /* Services */
+  .svc { padding: 22px; min-height: 160px; }
+  .svc h4 { font-size: 19px; }
+
+  /* About / Philosophy */
+  .about-grid p { font-size: 16px; }
+  .phil-list .it { grid-template-columns: 28px 1fr; gap: 10px; }
+  .phil-list .it .tx { font-size: 15px; }
+
+  /* Focus */
+  .focus-card { padding: 20px; }
+  .focus-card h4 { font-size: 17px; }
+
+  /* Contact */
+  .contact h2 { font-size: clamp(40px, 14vw, 80px); }
+  .contact-row { margin-top: 28px; gap: 24px; }
+  .contact-links a {
+    grid-template-columns: 78px 1fr auto;
+    padding: 14px 4px;
+    gap: 10px;
+  }
+  .contact-links a:hover { padding-left: 8px; }
+  .contact-links a .v { font-size: 13px; }
+  .contact-links a .k { font-size: 10px; }
+
+  /* Footer */
+  footer { padding: 40px 0 28px; }
+  .footer-mark { font-size: 40px; }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 32px;
+  }
+}
+
+/* =========================================================
+   Responsive — small phone (< 480px)
+   ========================================================= */
+@media (max-width: 480px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  .nav-links { font-size: 10px; }
+  /* Demo body scrolls horizontally so the table and kanban don't squash */
+  .dc-table thead th { padding: 7px 8px; }
+  .dc-table tbody td { padding: 8px 8px; font-size: 11px; }
+  /* Hero corners pull in so they don't visually clip on small viewports */
+  .hero-card .corner.tl, .hero-card .corner.bl { left: 4px; }
+  .hero-card .corner.tr, .hero-card .corner.br { right: 4px; }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-row { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
