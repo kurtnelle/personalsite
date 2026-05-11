@@ -111,19 +111,6 @@ function Hero() {
           <span className="dot amber" />
           Port of Spain · {time} AST
         </span>
-        <span className="pill">
-          <span className="dot amber" />
-          {HERO.pills[2].label}
-        </span>
-        <span style={{
-          marginLeft: "auto",
-          fontFamily: "var(--f-mono)",
-          fontSize: 10,
-          color: "var(--muted)",
-          letterSpacing: ".08em",
-        }}>
-          V.2026.05 — BUILD {String((now.getTime() / 86400000 | 0) % 10000).padStart(4, "0")}
-        </span>
       </div>
       <div className="hero-grid">
         <div>
@@ -145,10 +132,6 @@ function Hero() {
           </div>
         </div>
         <aside className="hero-card reveal">
-          <span className="corner tl" />
-          <span className="corner tr" />
-          <span className="corner bl" />
-          <span className="corner br" />
           <Monogram />
           <div className="meta">
             {HERO.meta.map((m) => (

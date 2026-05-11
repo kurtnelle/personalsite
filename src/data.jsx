@@ -42,7 +42,6 @@ const HERO = {
     { k: "ROLE",  v: "Engineer · Architect" },
     { k: "BASE",  v: "Port of Spain, T&T" },
     { k: "SINCE", v: "2003 · MS stack" },
-    { k: "BUILD", v: "KBlazor · automation · PWAs" },
     { k: "AVAIL", v: "Selected · Q3 2026" },
   ],
 };
