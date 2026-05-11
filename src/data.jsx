@@ -169,6 +169,7 @@ const PROJECTS = [
     num: "01",
     name: "Receiva",
     tag: "Offline-first field service PWA",
+    url: "https://receiva.app/",
     lede: "Progressive Web App for field service businesses — operates entirely offline, GPS-aware client selection, receipt generation, email queueing, and local-first synchronisation when connectivity returns.",
     features: [
       "Full offline operation",

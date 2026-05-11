@@ -459,6 +459,14 @@ function Projects() {
                       <ul>
                         {p.stack.map((s) => <li key={s}>{s}</li>)}
                       </ul>
+                      {p.url && (
+                        <a className="proj-visit"
+                           href={p.url}
+                           target="_blank" rel="noreferrer"
+                           onClick={(e) => e.stopPropagation()}>
+                          Visit {p.url.replace(/^https?:\/\//, "").replace(/\/$/, "")} →
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
