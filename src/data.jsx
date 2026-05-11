@@ -197,7 +197,7 @@ const PROJECTS = [
   {
     num: "03",
     name: "Intra-organisational Order Management",
-    tag: "Sep 2022 – Jan 2023",
+    tag: "Sep 2022 – Apr 2026",
     lede: "Custom integration pulling order data from the organisation's inventory management system into the accounting solution, enforcing complex business rules along the way.",
     features: [
       "Inventory → accounting data integration",
