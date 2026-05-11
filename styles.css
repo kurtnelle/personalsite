@@ -326,6 +326,75 @@ section:first-of-type { border-top: 0; }
 @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* =========================================================
+   Credentials strip — three facts at a glance (critique #10)
+   ========================================================= */
+.creds-section {
+  padding: clamp(48px, 6vw, 88px) 0;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.creds-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+}
+.cred {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-left: 18px;
+  border-left: 1px solid var(--line);
+}
+.cred-link {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: inherit;
+  transition: color 0.18s ease;
+}
+.cred-link:hover { color: var(--accent); }
+.cred-link:hover .cred-num { color: var(--accent); }
+.cred-num {
+  font-family: var(--f-display);
+  font-size: clamp(40px, 5.6vw, 76px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.18s ease;
+}
+.cred-plus {
+  font-size: 0.5em;
+  color: var(--accent);
+  vertical-align: 0.4em;
+  margin-left: 2px;
+  letter-spacing: 0;
+}
+.cred-lab {
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.cred-sub {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 880px) {
+  .creds-row { grid-template-columns: 1fr; gap: 22px; }
+  .cred { padding-left: 14px; }
+  .cred-num { font-size: clamp(48px, 12vw, 64px); }
+}
+
+/* =========================================================
    Origin section — bench photo + 2-paragraph story
    ========================================================= */
 .origin-h {

@@ -203,6 +203,38 @@ function Ticker() {
   );
 }
 
+// ── Credentials strip (critique #10 — credibility anchors) ────────────────
+// Sits between the capabilities ticker and the origin story. Three numbers,
+// large mono type, no SaaS-marketing tone — each one is a fact the reader
+// can verify from the rest of the page.
+function Credentials() {
+  return (
+    <section className="wrap creds-section">
+      <ul className="creds-row">
+        <li className="cred">
+          <span className="cred-num">23</span>
+          <span className="cred-lab">Years shipping<br />production software</span>
+          <span className="cred-sub">Since 2003 · Microsoft stack</span>
+        </li>
+        <li className="cred">
+          <span className="cred-num">12<span className="cred-plus">+</span></span>
+          <span className="cred-lab">Client engagements<br />delivered</span>
+          <span className="cred-sub">2008 → present</span>
+        </li>
+        <li className="cred">
+          <a className="cred-link"
+             href="https://www.nuget.org/packages?q=KBlazor"
+             target="_blank" rel="noreferrer">
+            <span className="cred-num">KBlazor</span>
+            <span className="cred-lab">Open-source framework<br />on NuGet</span>
+            <span className="cred-sub">nuget.org · kblazor.com →</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  );
+}
+
 // ── Origin (human anchor) ──────────────────────────────────────────────────
 function Origin() {
   return (
@@ -620,6 +652,7 @@ function App() {
       <main>
         <Hero />
         <Ticker />
+        <Credentials />
         <Origin />
         <Stack />
         <KBlazorSection theme={theme} />
