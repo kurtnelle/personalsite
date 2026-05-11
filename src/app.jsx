@@ -220,6 +220,27 @@ function Ticker() {
   );
 }
 
+// ── Origin (human anchor) ──────────────────────────────────────────────────
+function Origin() {
+  return (
+    <section className="wrap" id="origin">
+      <div className="sec-label">Origin · How I got here</div>
+      <h2 className="origin-h">
+        Hardware came <span className="serif">first.</span>
+      </h2>
+      <figure className="origin-figure reveal">
+        <img src="assets/bench-origin.jpg"
+             alt="My bench — FEZ board, PIC programmer in its black case, soldering station, the usual mess"
+             loading="lazy" />
+        <figcaption>{ORIGIN.caption}</figcaption>
+      </figure>
+      <div className="origin-body reveal">
+        {ORIGIN.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+      </div>
+    </section>
+  );
+}
+
 // ── Stack ──────────────────────────────────────────────────────────────────
 function Stack() {
   return (
@@ -604,6 +625,7 @@ function App() {
       <main>
         <Hero />
         <Ticker />
+        <Origin />
         <Stack />
         <KBlazorSection theme={theme} />
         <Projects />

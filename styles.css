@@ -326,6 +326,49 @@ section:first-of-type { border-top: 0; }
 @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* =========================================================
+   Origin section — bench photo + 2-paragraph story
+   ========================================================= */
+.origin-h {
+  max-width: 14ch;
+  margin-bottom: 36px;
+}
+.origin-figure {
+  margin: 8px 0 48px;
+  padding: 0;
+}
+.origin-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+}
+.origin-figure figcaption {
+  margin-top: 14px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.origin-body {
+  max-width: 68ch;
+}
+.origin-body p {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 22px;
+  color: var(--text);
+}
+.origin-body p:last-child { margin-bottom: 0; }
+.origin-body strong { font-weight: 500; }
+
+@media (max-width: 720px) {
+  .origin-body p { font-size: 15px; }
+  .origin-figure { margin-bottom: 28px; }
+}
+
+/* =========================================================
    Stack diagram
    ========================================================= */
 .stack {
