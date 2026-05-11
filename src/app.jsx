@@ -467,7 +467,8 @@ function Projects() {
         {PROJECTS.map((p) => {
           const isOpen = open === p.num;
           return (
-            <div key={p.num} className={"proj reveal" + (isOpen ? " open" : "")}
+            <div key={p.num} className="proj reveal"
+                 data-open={isOpen ? "1" : "0"}
                  onClick={() => setOpen(isOpen ? null : p.num)}>
               <div className="num">{p.num}</div>
               <div className="title">

@@ -609,7 +609,7 @@ section:first-of-type { border-top: 0; }
   transition: grid-template-rows 0.32s cubic-bezier(0.65, 0, 0.35, 1);
   grid-column: 1 / -1;
 }
-.proj.open .proj-expand { grid-template-rows: 1fr; }
+.proj[data-open="1"] .proj-expand { grid-template-rows: 1fr; }
 .proj-expand > div { overflow: hidden; }
 .proj-expand-inner {
   margin-top: 28px;
