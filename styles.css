@@ -1013,6 +1013,56 @@ section:first-of-type { border-top: 0; }
 }
 .phil-list .it .tx { font-size: 16px; color: var(--text); }
 
+/* About aside — black-and-white photo + "outside the keyboard" line.
+   Full-bleed within .wrap, sits below the bio + philosophy grid. */
+.about-aside {
+  margin: clamp(56px, 6vw, 96px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: end;
+}
+.about-aside img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  /* B&W photo carries its own mood — no extra filter */
+}
+.about-aside figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+.about-aside-lab {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.about-aside-tx {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--text);
+  max-width: 36ch;
+}
+.about-aside-grind {
+  font-size: 1.6em;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  vertical-align: -0.05em;
+}
+
+@media (max-width: 880px) {
+  .about-aside { grid-template-columns: 1fr; gap: 16px; }
+  .about-aside figcaption { padding-bottom: 0; }
+  .about-aside-tx { font-size: 16px; }
+}
+
 /* =========================================================
    Focus / current research
    ========================================================= */
