@@ -552,7 +552,7 @@ function Footer() {
       <div className="wrap">
         <div className="footer-grid">
           <div className="footer-mark">
-            Shawn <span className="serif">K.</span> Lewis.
+            Shawn <span className="serif">K.</span> Lewis
             <span className="sub">{SITE.location}</span>
           </div>
           {FOOTER.cols.map((c) => (
