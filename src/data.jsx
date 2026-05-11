@@ -10,13 +10,14 @@ const SITE = {
 };
 
 const NAV = [
-  { idx: "01", label: "Top",      href: "#top" },
-  { idx: "02", label: "Stack",    href: "#stack" },
-  { idx: "03", label: "KBlazor",  href: "#kblazor" },
-  { idx: "04", label: "Projects", href: "#projects" },
-  { idx: "05", label: "Skills",   href: "#skills" },
-  { idx: "06", label: "About",    href: "#about" },
-  { idx: "07", label: "Contact",  href: "#contact" },
+  { idx: "01", label: "Top",         href: "#top" },
+  { idx: "02", label: "Stack",       href: "#stack" },
+  { idx: "03", label: "KBlazor",     href: "#kblazor" },
+  { idx: "04", label: "Projects",    href: "#projects" },
+  { idx: "05", label: "Engagements", href: "#engagements" },
+  { idx: "06", label: "Skills",      href: "#skills" },
+  { idx: "07", label: "About",       href: "#about" },
+  { idx: "08", label: "Contact",     href: "#contact" },
 ];
 
 const HERO = {
@@ -206,6 +207,89 @@ const PROJECTS = [
   },
 ];
 
+// Client engagements pulled from LinkedIn project history. Listed
+// reverse-chronologically; "skills" are only the chips LinkedIn called
+// out — descriptions stay one tight sentence each.
+const ENGAGEMENTS = [
+  {
+    dates: "Dec 2022 – Jul 2023",
+    name:  "Web Based Statement Generator",
+    org:   "JP Marshall Associates",
+    desc:  "Ingests Excel data and produces PDF statements bundled in a compressed zip archive.",
+    skills: ["Blazor", "PDF", "Excel ETL"],
+  },
+  {
+    dates: "Sep 2022 – Jan 2023",
+    name:  "Intra-organisational Order Management",
+    org:   "JP Marshall Associates",
+    desc:  "Custom integration pulling order data from inventory into accounting under complex organisational business rules.",
+    skills: ["ASP.NET Blazor", "SQL Server"],
+  },
+  {
+    dates: "Oct 2020 – Dec 2021",
+    name:  "Line of Business Scheduling Application",
+    org:   null,
+    desc:  "Web application for scheduling in-person and virtual meetings as part of a medical-compliance workflow.",
+    skills: ["ASP.NET", "Web App"],
+  },
+  {
+    dates: "Jan 2019 – Jun 2019",
+    name:  "KPI Dashboard",
+    org:   "JP Marshall Associates",
+    desc:  "Implemented complex KPIs in Microsoft Power BI to track critical metrics for the customer's engineering department.",
+    skills: ["Power BI", "KPIs"],
+  },
+  {
+    dates: "2016 – 2022",
+    name:  "Dynamics CRM → GP Data Integration",
+    org:   "JP Marshall Associates",
+    desc:  "T-SQL based ETL preparing Dynamics CRM data for integration with Dynamics GP, rolled out per business unit over six years.",
+    skills: ["T-SQL", "Dynamics CRM", "Dynamics GP", "ETL"],
+  },
+  {
+    dates: "2018",
+    name:  "Desktop Statement Generator",
+    org:   "JP Marshall Associates",
+    desc:  "Desktop application automating client statement generation — saved the customer weeks of work per quarter.",
+    skills: [".NET", "Automation"],
+  },
+  {
+    dates: "2017",
+    name:  "Leaderboard & Pre-2000 DB ETL",
+    org:   "JP Marshall Associates",
+    desc:  "Leaderboard built on a pre-2000 database via a custom configurable ETL into a data warehouse; raised client profitability within months.",
+    skills: ["ETL", "Data Warehouse", "Reporting"],
+  },
+  {
+    dates: "Jan 2016 – Jan 2017",
+    name:  "Service Complaints in MS Dynamics CRM",
+    org:   "JP Marshall Associates",
+    desc:  "Configured Dynamics CRM for a service complaints department, including a custom complaint-ID scheme the client required.",
+    skills: ["Dynamics CRM", "Configuration"],
+  },
+  {
+    dates: "2010",
+    name:  "Credit Card Processing Portal",
+    org:   "Digital Business Limited",
+    desc:  "TTD credit card processing web portal for an insurer, plus bank-side download files for policyholder payment processing.",
+    skills: ["Web Portal", "Payments"],
+  },
+  {
+    dates: "2009",
+    name:  "Financial Compliance Reporting",
+    org:   "Digital Business Limited",
+    desc:  "Reporting system verifying account-holder compliance with government regulations on source of funds.",
+    skills: ["Compliance", "Reporting"],
+  },
+  {
+    dates: "2008",
+    name:  "Government Candidate Management",
+    org:   "Digital Business Limited",
+    desc:  "Two applications for end-to-end electronic candidate management for a government organisation's hiring process.",
+    skills: ["Web App", "Workflow"],
+  },
+];
+
 const SKILLS = [
   { cat: "Languages",   nm: "C#" },
   { cat: "Languages",   nm: "SQL" },
@@ -325,5 +409,6 @@ const FOOTER = {
 
 Object.assign(window, {
   SITE, NAV, HERO, TICKER, STACK, KBLAZOR, KB_ORDERS,
-  PROJECTS, SKILLS, SERVICES, ABOUT, PHILOSOPHY, FOCUS, CONTACT, FOOTER,
+  PROJECTS, ENGAGEMENTS, SKILLS, SERVICES, ABOUT, PHILOSOPHY, FOCUS,
+  CONTACT, FOOTER,
 });
