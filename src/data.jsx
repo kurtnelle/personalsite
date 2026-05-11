@@ -71,58 +71,46 @@ const KBLAZOR = {
     { label: "kblazor.com",         href: "https://kblazor.com" },
     { label: "nuget: KBlazor",      href: "https://www.nuget.org/packages?q=KBlazor", amber: true },
   ],
-  // Razor markup rendered as tokenised lines below.
+  // Real KBlazor FlexTable usage — one element with named parameters.
+  // 11-space indent on continuation lines so attributes align under the
+  // opening tag exactly like the kblazor.com docs render it.
   codeLines: [
-    { tokens: [{ k: "cmt", t: "@* AI-ready Blazor components — Table, Card, Kanban *@" }] },
-    { tokens: [{ t: "" }] },
     { tokens: [
       { k: "tag", t: "<FlexTable" }, { t: " " },
-      { k: "attr", t: "Items" }, { t: "=" }, { k: "str", t: "\"orders\"" }, { t: " " },
-      { k: "attr", t: "View" }, { t: "=" }, { k: "str", t: "\"@view\"" }, { k: "tag", t: ">" },
+      { k: "attr", t: "TItem" }, { t: "=" }, { k: "str", t: "\"PurchaseOrder\"" },
     ]},
     { tokens: [
-      { t: "  " }, { k: "tag", t: "<Column" }, { t: " " },
-      { k: "attr", t: "For" }, { t: "=" }, { k: "str", t: "\"@(o => o.Customer)\"" },
-      { t: " " }, { k: "attr", t: "Sortable" }, { k: "tag", t: " />" },
+      { t: "           " },
+      { k: "attr", t: "Items" }, { t: "=" }, { k: "str", t: "\"@_orders\"" },
     ]},
     { tokens: [
-      { t: "  " }, { k: "tag", t: "<Column" }, { t: " " },
-      { k: "attr", t: "For" }, { t: "=" }, { k: "str", t: "\"@(o => o.Amount)\"" },
-      { t: " " }, { k: "attr", t: "Align" }, { t: "=" }, { k: "str", t: "\"Right\"" },
-      { k: "tag", t: " />" },
+      { t: "           " },
+      { k: "attr", t: "Fields" }, { t: "=" },
+      { k: "str", t: "\"Order #,Customer,Status,Amount,Order Date\"" },
     ]},
     { tokens: [
-      { t: "  " }, { k: "tag", t: "<Column" }, { t: " " },
-      { k: "attr", t: "For" }, { t: "=" }, { k: "str", t: "\"@(o => o.Due)\"" },
-      { t: " " }, { k: "attr", t: "Editor" }, { t: "=" },
-      { k: "str", t: "\"DatePicker\"" }, { k: "tag", t: " />" },
+      { t: "           " },
+      { k: "attr", t: "ViewName" }, { t: "=" }, { k: "str", t: "\"MyView\"" },
     ]},
     { tokens: [
-      { t: "  " }, { k: "tag", t: "<Column" }, { t: " " },
-      { k: "attr", t: "For" }, { t: "=" }, { k: "str", t: "\"@(o => o.Status)\"" },
-      { t: " " }, { k: "attr", t: "Kanban" }, { k: "tag", t: " />" },
-    ]},
-    { tokens: [{ k: "tag", t: "</FlexTable>" }] },
-    { tokens: [{ t: "" }] },
-    { tokens: [
-      { k: "tag", t: "<BasicEdit" }, { t: " " },
-      { k: "attr", t: "Model" }, { t: "=" }, { k: "str", t: "\"@selected\"" }, { t: " " },
-      { k: "attr", t: "OnSave" }, { t: "=" }, { k: "str", t: "\"Persist\"" },
-      { k: "tag", t: " />" },
-    ]},
-    { tokens: [{ t: "" }] },
-    { tokens: [{ k: "key", t: "@code" }, { t: " {" }] },
-    { tokens: [
-      { t: "  " }, { k: "key", t: "private" }, { t: " " },
-      { k: "typ", t: "string" }, { t: " view = " },
-      { k: "str", t: "\"Table\"" }, { t: ";" },
+      { t: "           " },
+      { k: "attr", t: "PageSize" }, { t: "=" }, { k: "str", t: "\"10\"" },
     ]},
     { tokens: [
-      { t: "  " }, { k: "key", t: "private" }, { t: " " },
-      { k: "typ", t: "List<Order>" }, { t: " orders = " },
-      { k: "fn", t: "Repo.All" }, { t: "();" },
+      { t: "           " },
+      { k: "attr", t: "SelectionChanged" }, { t: "=" },
+      { k: "str", t: "\"OnRowClicked\"" },
     ]},
-    { tokens: [{ t: "}" }] },
+    { tokens: [
+      { t: "           " },
+      { k: "attr", t: "SortFilter" }, { t: "=" },
+      { k: "str", t: "\"OnSortFilter\"" },
+    ]},
+    { tokens: [
+      { t: "           " },
+      { k: "attr", t: "RenderTemplates" }, { t: "=" },
+      { k: "str", t: "\"@_templates\"" }, { k: "tag", t: " />" },
+    ]},
   ],
   features: [
     { lab: "Component",   h: "FlexTable",  p: "Sortable, filterable, virtualised data grid with column metadata." },
