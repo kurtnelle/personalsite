@@ -1,0 +1,329 @@
+// src/data.jsx — all site content as global consts.
+// Loaded via <script type="text/babel"> so top-level consts live on window scope.
+
+const SITE = {
+  name: "Shawn K. Lewis",
+  brand: "SKL",
+  role: "Software Engineer · Systems Architect",
+  location: "Port of Spain, Trinidad & Tobago",
+  availability: "Open to projects · Q3 2026",
+};
+
+const NAV = [
+  { idx: "01", label: "Top",      href: "#top" },
+  { idx: "02", label: "Stack",    href: "#stack" },
+  { idx: "03", label: "KBlazor",  href: "#kblazor" },
+  { idx: "04", label: "Projects", href: "#projects" },
+  { idx: "05", label: "Skills",   href: "#skills" },
+  { idx: "06", label: "About",    href: "#about" },
+  { idx: "07", label: "Contact",  href: "#contact" },
+];
+
+const HERO = {
+  pills: [
+    { label: "Available for engagements", dot: "grn" },
+    { label: "Trinidad & Tobago · UTC-4", dot: null },
+    { label: "Systems · Embedded · AI",   dot: "amber" },
+  ],
+  // Headline composed of plain + serif italic + stroke parts.
+  title: [
+    { t: "Software " },
+    { t: "for the ", serif: true },
+    { t: "real world.", stroke: true },
+  ],
+  tag: (
+    <>
+      I build <strong>software and hardware systems</strong> that bridge the gap
+      between enterprise applications, industrial automation, and intelligent
+      embedded devices — from offline-first business platforms to custom
+      robotics architectures, designed to be modular, scalable, and shipped.
+    </>
+  ),
+  meta: [
+    { k: "ROLE",    v: "Engineer / Architect" },
+    { k: "BASE",    v: "Port of Spain, TT" },
+    { k: "STACK",   v: ".NET · Blazor · Embedded" },
+    { k: "STATUS",  v: "Available" },
+  ],
+};
+
+const TICKER = [
+  "C# / .NET 9", "Blazor WASM", "PWA · Offline-First", "Embedded Linux",
+  "STM32 · TinyCLR", "CAN Bus · SPI · I²C", "Industrial Automation",
+  "ETL · Reconciliation", "Azure", "PostgreSQL · SQL Server",
+  "AI-Augmented Pipelines", "Custom Hardware Integration",
+];
+
+const STACK = [
+  { num: "L08", name: "Cloud & Infrastructure",  sub: "Azure · Cloudflare · CI/CD" },
+  { num: "L07", name: "Enterprise Backend",      sub: ".NET 9 · ASP.NET Core · APIs" },
+  { num: "L06", name: "Blazor PWA Surface",      sub: "WASM · Offline · IndexedDB" },
+  { num: "L05", name: "AI-Augmented Layer",      sub: "Codegen · Workflow automation" },
+  { num: "L04", name: "Data & ETL",              sub: "PostgreSQL · Reconciliation" },
+  { num: "L03", name: "Embedded Linux",          sub: "Edge gateways · IPC bridges" },
+  { num: "L02", name: "Microcontroller Firmware",sub: "STM32 · TinyCLR · Real-time" },
+  { num: "L01", name: "Bus & I/O",               sub: "CAN · SPI · I²C · UART" },
+];
+
+// KBlazor showcase — code on the left, live demo on the right.
+const KBLAZOR = {
+  badges: [
+    { label: "kblazor.com",         href: "https://kblazor.com" },
+    { label: "nuget: KBlazor",      href: "https://www.nuget.org/packages?q=KBlazor", amber: true },
+  ],
+  // Razor markup rendered as tokenised lines below.
+  codeLines: [
+    { tokens: [{ k: "cmt", t: "@* AI-ready Blazor components — Table, Card, Kanban *@" }] },
+    { tokens: [{ t: "" }] },
+    { tokens: [
+      { k: "tag", t: "<FlexTable" }, { t: " " },
+      { k: "attr", t: "Items" }, { t: "=" }, { k: "str", t: "\"orders\"" }, { t: " " },
+      { k: "attr", t: "View" }, { t: "=" }, { k: "str", t: "\"@view\"" }, { k: "tag", t: ">" },
+    ]},
+    { tokens: [
+      { t: "  " }, { k: "tag", t: "<Column" }, { t: " " },
+      { k: "attr", t: "For" }, { t: "=" }, { k: "str", t: "\"@(o => o.Customer)\"" },
+      { t: " " }, { k: "attr", t: "Sortable" }, { k: "tag", t: " />" },
+    ]},
+    { tokens: [
+      { t: "  " }, { k: "tag", t: "<Column" }, { t: " " },
+      { k: "attr", t: "For" }, { t: "=" }, { k: "str", t: "\"@(o => o.Amount)\"" },
+      { t: " " }, { k: "attr", t: "Align" }, { t: "=" }, { k: "str", t: "\"Right\"" },
+      { k: "tag", t: " />" },
+    ]},
+    { tokens: [
+      { t: "  " }, { k: "tag", t: "<Column" }, { t: " " },
+      { k: "attr", t: "For" }, { t: "=" }, { k: "str", t: "\"@(o => o.Due)\"" },
+      { t: " " }, { k: "attr", t: "Editor" }, { t: "=" },
+      { k: "str", t: "\"DatePicker\"" }, { k: "tag", t: " />" },
+    ]},
+    { tokens: [
+      { t: "  " }, { k: "tag", t: "<Column" }, { t: " " },
+      { k: "attr", t: "For" }, { t: "=" }, { k: "str", t: "\"@(o => o.Status)\"" },
+      { t: " " }, { k: "attr", t: "Kanban" }, { k: "tag", t: " />" },
+    ]},
+    { tokens: [{ k: "tag", t: "</FlexTable>" }] },
+    { tokens: [{ t: "" }] },
+    { tokens: [
+      { k: "tag", t: "<BasicEdit" }, { t: " " },
+      { k: "attr", t: "Model" }, { t: "=" }, { k: "str", t: "\"@selected\"" }, { t: " " },
+      { k: "attr", t: "OnSave" }, { t: "=" }, { k: "str", t: "\"Persist\"" },
+      { k: "tag", t: " />" },
+    ]},
+    { tokens: [{ t: "" }] },
+    { tokens: [{ k: "key", t: "@code" }, { t: " {" }] },
+    { tokens: [
+      { t: "  " }, { k: "key", t: "private" }, { t: " " },
+      { k: "typ", t: "string" }, { t: " view = " },
+      { k: "str", t: "\"Table\"" }, { t: ";" },
+    ]},
+    { tokens: [
+      { t: "  " }, { k: "key", t: "private" }, { t: " " },
+      { k: "typ", t: "List<Order>" }, { t: " orders = " },
+      { k: "fn", t: "Repo.All" }, { t: "();" },
+    ]},
+    { tokens: [{ t: "}" }] },
+  ],
+  features: [
+    { lab: "Component",   h: "FlexTable",  p: "Sortable, filterable, virtualised data grid with column metadata." },
+    { lab: "Component",   h: "BasicEdit",  p: "Inline + modal editing with validation, dirty tracking, and auto-bind." },
+    { lab: "Component",   h: "DatePicker", p: "Keyboard-first picker with ranges, presets, and time zone awareness." },
+    { lab: "Architecture",h: "Multi-view", p: "Switch a single dataset between Table, Card, and Kanban — zero config." },
+  ],
+};
+
+// Demo dataset rendered by the KBlazor preview card. Single source the
+// React table reads — same shape the real component consumes.
+const KB_ORDERS = [
+  { id: "INV-2041", customer: "Caribbean Cement",  amount: 18420.00, due: "2026-05-22", status: "ok"   },
+  { id: "INV-2042", customer: "PowerGen Trinidad", amount:  7250.50, due: "2026-05-18", status: "warn" },
+  { id: "INV-2043", customer: "Massy Industrial",  amount: 31200.00, due: "2026-06-04", status: "ok"   },
+  { id: "INV-2044", customer: "NGC Refinery",      amount:  4980.75, due: "2026-05-15", status: "err"  },
+  { id: "INV-2045", customer: "WASA Pipeworks",    amount: 12640.00, due: "2026-06-12", status: "ok"   },
+  { id: "INV-2046", customer: "Petrotrin Legacy",  amount:  9300.00, due: "2026-05-29", status: "warn" },
+];
+
+const PROJECTS = [
+  {
+    num: "01",
+    name: "CRUD and Logic",
+    tag: "Modular composable runtime",
+    lede: "A modular architecture platform that decomposes monoliths into isolated, composable logic units — applications as fluid systems rather than static binaries.",
+    features: [
+      "Function-level orchestration",
+      "Pipeline-driven execution",
+      "Runtime hot-swapping",
+      "Memory-mapped communication",
+      "Language-agnostic logic units",
+      "AI-assisted code generation",
+      "Runtime introspection & tracing",
+    ],
+    stack: [".NET 9", "C#", "Pipelines", "IPC", "AI Codegen"],
+  },
+  {
+    num: "02",
+    name: "PolyNC",
+    tag: "CNC & robotics control ecosystem",
+    lede: "Custom motion control built around embedded controllers, distributed CAN bus topology, and a Blazor operator interface — enterprise software practices applied to industrial machine control.",
+    features: [
+      "Embedded motion controllers",
+      "Real-time machine control",
+      "Custom firmware",
+      "Blazor-based operator interfaces",
+      "CAN bus distributed systems",
+      "Advanced kinematics",
+    ],
+    stack: ["STM32", "Blazor", "CAN", "Kinematics", "Real-time"],
+  },
+  {
+    num: "03",
+    name: "Receiva",
+    tag: "Offline-first field service PWA",
+    lede: "Progressive Web App for field service businesses — operates entirely offline, GPS-aware client selection, receipt generation, email queueing, and local-first synchronisation when connectivity returns.",
+    features: [
+      "Full offline operation",
+      "GPS-aware client selection",
+      "Receipt generation",
+      "Email queueing",
+      "Installable PWA experience",
+      "Local-first synchronisation",
+    ],
+    stack: ["Blazor WASM", "ASP.NET Core", "SQLite", "IndexedDB", "Azure"],
+  },
+  {
+    num: "04",
+    name: "Pacgrabit",
+    tag: "Workshop memory & planning",
+    lede: "Parts tracking, project shortages, and inventory awareness designed around how workshops actually operate — fast workflows, offline-first, none of the generic ERP overhead.",
+    features: [
+      "Parts tracking",
+      "Project shortages",
+      "Inventory awareness",
+      "Offline-first operation",
+      "Fast workflows for technical environments",
+    ],
+    stack: ["Blazor", "SQLite", "PWA", "Offline-first"],
+  },
+];
+
+const SKILLS = [
+  { cat: "Languages",   nm: "C#" },
+  { cat: "Languages",   nm: "SQL" },
+  { cat: "Languages",   nm: "Python" },
+  { cat: "Languages",   nm: "JavaScript" },
+  { cat: "Languages",   nm: "HTML / CSS" },
+
+  { cat: "Frameworks",  nm: ".NET 9" },
+  { cat: "Frameworks",  nm: "ASP.NET Core" },
+  { cat: "Frameworks",  nm: "Blazor" },
+  { cat: "Frameworks",  nm: "Avalonia" },
+  { cat: "Frameworks",  nm: ".NET MAUI" },
+
+  { cat: "Databases",   nm: "SQL Server" },
+  { cat: "Databases",   nm: "PostgreSQL" },
+  { cat: "Databases",   nm: "SQLite" },
+
+  { cat: "Embedded",    nm: "STM32" },
+  { cat: "Embedded",    nm: "TinyCLR" },
+  { cat: "Embedded",    nm: "Embedded Linux" },
+  { cat: "Embedded",    nm: "CAN Bus" },
+  { cat: "Embedded",    nm: "SPI" },
+  { cat: "Embedded",    nm: "I²C" },
+  { cat: "Embedded",    nm: "UART" },
+
+  { cat: "Cloud",       nm: "Azure" },
+  { cat: "Cloud",       nm: "Azure SQL" },
+  { cat: "Cloud",       nm: "Azure DevOps" },
+  { cat: "Cloud",       nm: "GitHub Actions" },
+  { cat: "Cloud",       nm: "CI/CD" },
+  { cat: "Cloud",       nm: "Containers" },
+
+  { cat: "Architecture", nm: "Offline-First" },
+  { cat: "Architecture", nm: "Distributed Systems" },
+  { cat: "Architecture", nm: "ETL & Reconciliation" },
+  { cat: "Architecture", nm: "Modular Runtimes" },
+  { cat: "Architecture", nm: "AI-Augmented Dev" },
+];
+
+const SERVICES = [
+  { ix: "S/01", h: "Enterprise Software Development",
+    p: "Custom business systems built using modern .NET — modular, maintainable, and fitted to operational reality." },
+  { ix: "S/02", h: "Blazor Application Development",
+    p: "Interactive web apps, PWAs, dashboards, and internal tooling — offline-capable where it matters." },
+  { ix: "S/03", h: "Embedded Systems & Automation",
+    p: "Microcontroller firmware, machine interfaces, industrial integrations, and distributed hardware systems." },
+  { ix: "S/04", h: "ETL & Data Migration",
+    p: "Extraction, transformation, reconciliation, and migration — the un-glamorous work that makes systems trustworthy." },
+  { ix: "S/05", h: "Architecture & Technical Consulting",
+    p: "System design, modernisation planning, scalability reviews, and pragmatic technical strategy." },
+  { ix: "S/06", h: "AI-Augmented Engineering",
+    p: "Workflow automation and AI-assisted development pipelines — leverage without losing the plot." },
+];
+
+const ABOUT = {
+  paragraphs: [
+    <>I'm a multidisciplinary software engineer and systems architect based in <strong>Trinidad &amp; Tobago</strong>, with experience spanning enterprise software, embedded systems, robotics, industrial automation, and AI-assisted development.</>,
+    <>My work focuses on building practical systems that solve operational problems while remaining maintainable, scalable, and extensible long-term. I've shipped everything from enterprise ETL and reconciliation platforms to custom CNC and robotics architectures.</>,
+    <>I enjoy difficult engineering problems — especially where software, hardware, networking, and automation intersect.</>,
+    <em className="serif">And every brilliant idea belongs to God first.</em>,
+  ],
+};
+
+const PHILOSOPHY = [
+  "Software should solve real operational problems.",
+  "It should be understandable and maintainable.",
+  "Scale comes through modularity, not heroics.",
+  "Reduce friction for users; the machine should bend, not them.",
+  "Be resilient in imperfect real-world conditions.",
+  "Offline-first when the network is a liability.",
+  "Hardware and software are co-designed — neither pretends the other doesn't exist.",
+];
+
+const FOCUS = [
+  { lab: "Research", h: "Modular AI-assisted software architectures",
+    p: "How runtimes change when logic units are generated, swapped, and traced at runtime by an AI collaborator." },
+  { lab: "Build",    h: "Embedded robotics systems",
+    p: "Motion-control firmware, kinematics, and distributed CAN bus topologies." },
+  { lab: "Build",    h: "Distributed logic execution",
+    p: "Memory-mapped communication and pipeline-driven orchestration across processes and machines." },
+  { lab: "Research", h: "Industrial automation tooling",
+    p: "Bridging factory-floor reality with maintainable enterprise software practices." },
+  { lab: "Build",    h: "Offline-first enterprise apps",
+    p: "Blazor WASM + SQLite/IndexedDB patterns that survive bad connectivity and unscheduled power cuts." },
+  { lab: "Design",   h: "Human-machine interface design",
+    p: "Operator interfaces that respect what the operator actually has to do at 3am." },
+  { lab: "Build",    h: "Advanced motion control",
+    p: "Kinematics, trajectory planning, and real-time loops under deterministic constraints." },
+];
+
+const CONTACT = [
+  { k: "GitHub",   v: "github.com/kurtnelle",      href: "https://github.com/kurtnelle" },
+  { k: "LinkedIn", v: "linkedin.com/in/kurtnelle", href: "https://www.linkedin.com/in/kurtnelle" },
+  { k: "KBlazor",  v: "kblazor.com",                href: "https://kblazor.com" },
+];
+
+const FOOTER = {
+  cols: [
+    { h: "Work", links: [
+      { t: "Featured projects", href: "#projects" },
+      { t: "KBlazor",           href: "#kblazor" },
+      { t: "Services",          href: "#services" },
+    ]},
+    { h: "Network", links: [
+      { t: "GitHub",   href: "https://github.com/kurtnelle" },
+      { t: "LinkedIn", href: "https://www.linkedin.com/in/kurtnelle" },
+      { t: "KBlazor",  href: "https://kblazor.com" },
+    ]},
+    { h: "Site", links: [
+      { t: "About",   href: "#about" },
+      { t: "Stack",   href: "#stack" },
+      { t: "Contact", href: "#contact" },
+    ]},
+  ],
+  sig: "Built with C#, Blazor, coffee, and unreasonable engineering ambition.",
+};
+
+Object.assign(window, {
+  SITE, NAV, HERO, TICKER, STACK, KBLAZOR, KB_ORDERS,
+  PROJECTS, SKILLS, SERVICES, ABOUT, PHILOSOPHY, FOCUS, CONTACT, FOOTER,
+});
