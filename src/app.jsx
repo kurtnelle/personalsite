@@ -74,17 +74,56 @@ function TopNav({ theme, onToggleTheme }) {
   );
 }
 
+// Live AST clock — Port of Spain has no DST so Intl handles the offset.
+// Tick on the next wall-clock second so the seconds counter doesn't drift
+// out of phase with the system clock during long sessions.
+function useASTClock() {
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    let id;
+    const tick = () => {
+      setNow(new Date());
+      id = setTimeout(tick, 1000 - (Date.now() % 1000));
+    };
+    id = setTimeout(tick, 1000 - (Date.now() % 1000));
+    return () => clearTimeout(id);
+  }, []);
+  return now;
+}
+
+const __TIME_FMT = new Intl.DateTimeFormat("en-GB", {
+  timeZone: "America/Port_of_Spain",
+  hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false,
+});
+
 // ── Hero ───────────────────────────────────────────────────────────────────
 function Hero() {
+  const now = useASTClock();
+  const time = __TIME_FMT.format(now);
   return (
     <section className="hero wrap" id="top">
       <div className="hero-status">
-        {HERO.pills.map((p, i) => (
-          <span key={i} className="pill">
-            {p.dot && <span className={p.dot === "amber" ? "dot amber" : "dot"} />}
-            {p.label}
-          </span>
-        ))}
+        <span className="pill">
+          <span className="dot" />
+          {HERO.pills[0].label}
+        </span>
+        <span className="pill" style={{ fontVariantNumeric: "tabular-nums" }}>
+          <span className="dot amber" />
+          Port of Spain · {time} AST
+        </span>
+        <span className="pill">
+          <span className="dot amber" />
+          {HERO.pills[2].label}
+        </span>
+        <span style={{
+          marginLeft: "auto",
+          fontFamily: "var(--f-mono)",
+          fontSize: 10,
+          color: "var(--muted)",
+          letterSpacing: ".08em",
+        }}>
+          V.2026.05 — BUILD {String((now.getTime() / 86400000 | 0) % 10000).padStart(4, "0")}
+        </span>
       </div>
       <div className="hero-grid">
         <div>
