@@ -1013,15 +1013,12 @@ section:first-of-type { border-top: 0; }
 }
 .phil-list .it .tx { font-size: 16px; color: var(--text); }
 
-/* About aside — black-and-white photo + "outside the keyboard" line.
-   Full-bleed within .wrap, sits below the bio + philosophy grid. */
+/* About aside — black-and-white photo + one-line caption with a
+   visible slash separator between label and body text. Photo
+   full-bleed within .wrap, caption inline below. */
 .about-aside {
   margin: clamp(56px, 6vw, 96px) 0 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: clamp(24px, 4vw, 48px);
-  align-items: end;
 }
 .about-aside img {
   display: block;
@@ -1029,13 +1026,12 @@ section:first-of-type { border-top: 0; }
   height: auto;
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
-  /* B&W photo carries its own mood — no extra filter */
 }
-.about-aside figcaption {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-bottom: 8px;
+.about-aside-cap {
+  margin-top: 18px;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.55;
+  color: var(--text);
 }
 .about-aside-lab {
   font-family: var(--f-mono);
@@ -1043,24 +1039,26 @@ section:first-of-type { border-top: 0; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
+  margin-right: 4px;
 }
-.about-aside-tx {
-  font-size: 18px;
-  line-height: 1.55;
-  color: var(--text);
-  max-width: 36ch;
+.about-aside-sep {
+  color: var(--muted);
+  margin: 0 10px 0 4px;
+  font-family: var(--f-mono);
 }
+.about-aside-tx { color: var(--text); }
 .about-aside-grind {
-  font-size: 1.6em;
+  font-size: 1.45em;
   color: var(--accent);
   letter-spacing: -0.02em;
-  vertical-align: -0.05em;
+  vertical-align: -0.04em;
+  padding: 0 2px;
 }
 
-@media (max-width: 880px) {
-  .about-aside { grid-template-columns: 1fr; gap: 16px; }
-  .about-aside figcaption { padding-bottom: 0; }
-  .about-aside-tx { font-size: 16px; }
+@media (max-width: 720px) {
+  .about-aside-cap { font-size: 14px; }
+  .about-aside-lab { display: block; margin: 0 0 4px; }
+  .about-aside-sep { display: none; }
 }
 
 /* =========================================================

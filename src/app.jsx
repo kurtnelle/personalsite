@@ -550,11 +550,11 @@ function About() {
         <img src="assets/grind.jpg"
              alt="Black-and-white photo of a Ninja coffee machine — the word 'grind' visible on the touch panel"
              loading="lazy" />
-        <figcaption>
+        <figcaption className="about-aside-cap">
           <span className="about-aside-lab">Away from the keyboard</span>
+          <span className="about-aside-sep" aria-hidden="true">/</span>
           <span className="about-aside-tx">
-            Photography and videography. There's a channel —{" "}
-            <em>Trini Inside and Out</em>. You've got to enjoy the{" "}
+            Photography and videography. You've got to enjoy the{" "}
             <span className="serif about-aside-grind">grind</span>.
           </span>
         </figcaption>
