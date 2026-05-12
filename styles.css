@@ -22,6 +22,12 @@
   --radius: 6px;
   --radius-lg: 12px;
 
+  /* Premium-easing token. Used wherever the site moves something.
+     Industrial-feeling deceleration — fast in, gentle settle, no overshoot. */
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-fast: 180ms;
+  --motion-base: 240ms;
+
   --f-display: "Bricolage Grotesque", "Inter Tight", system-ui, sans-serif;
   --f-serif:   "Instrument Serif", "Cormorant Garamond", Georgia, serif;
   --f-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -73,7 +79,9 @@ a { color: inherit; text-decoration: none; }
 
 ::selection { background: var(--accent); color: var(--accent-ink); }
 
-/* Subtle grid backdrop */
+/* Subtle grid backdrop — drifts ~64px diagonally over 240s. Nearly
+   imperceptible by itself but contributes a faint sense of life to
+   the otherwise static page. */
 body::before {
   content: "";
   position: fixed;
@@ -87,6 +95,12 @@ body::before {
   opacity: 0.45;
   mask-image: radial-gradient(ellipse at top, black 0%, transparent 75%);
   z-index: 0;
+  animation: grid-drift 240s linear infinite;
+  will-change: background-position;
+}
+@keyframes grid-drift {
+  from { background-position: -1px -1px; }
+  to   { background-position: 63px 63px; }
 }
 
 main, header, footer, nav { position: relative; z-index: 1; }
@@ -194,6 +208,27 @@ section:first-of-type { border-top: 0; }
    Hero
    ========================================================= */
 .hero { padding-top: clamp(80px, 10vw, 140px); padding-bottom: clamp(80px, 10vw, 140px); }
+
+/* Hero load-in stagger — typography first, supporting elements after.
+   `backwards` fill keeps the elements invisible before their delay fires
+   so the page doesn't flash unstyled content. */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translate3d(0, 12px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+.hero .hero-status,
+.hero h1,
+.hero-tag,
+.hero-actions,
+.hero-card {
+  animation: hero-fade-up 0.6s var(--ease-premium) backwards;
+  will-change: transform, opacity;
+}
+.hero .hero-status { animation-delay: 0.05s; }
+.hero h1           { animation-delay: 0.15s; }
+.hero-tag          { animation-delay: 0.28s; }
+.hero-actions      { animation-delay: 0.40s; }
+.hero-card         { animation-delay: 0.52s; }
 .hero-status {
   display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
   font-family: var(--f-mono);
@@ -254,14 +289,24 @@ section:first-of-type { border-top: 0; }
   cursor: pointer;
   transition: all 0.18s ease;
 }
-.btn:hover { border-color: var(--text); transform: translateY(-1px); }
+.btn { transition: background var(--motion-fast) var(--ease-premium),
+                   border-color var(--motion-fast) var(--ease-premium),
+                   color var(--motion-fast) var(--ease-premium),
+                   transform var(--motion-fast) var(--ease-premium),
+                   box-shadow var(--motion-base) var(--ease-premium),
+                   filter var(--motion-fast) var(--ease-premium); }
+.btn:hover { border-color: var(--text); transform: translate3d(0, -1px, 0); }
+.btn:active { transform: translate3d(0, 1px, 0); transition-duration: 80ms; }
 .btn.primary {
   background: var(--accent);
   color: var(--accent-ink);
   border-color: var(--accent);
 }
-.btn.primary:hover { filter: brightness(1.06); }
-.btn .arr { transition: transform 0.18s ease; }
+.btn.primary:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 8px 28px -10px color-mix(in oklab, var(--accent) 55%, transparent);
+}
+.btn .arr { transition: transform var(--motion-fast) var(--ease-premium); }
 .btn:hover .arr { transform: translateX(3px); }
 
 /* Hero portrait card */
@@ -733,7 +778,10 @@ section:first-of-type { border-top: 0; }
   display: flex;
   flex-direction: column;
   gap: 6px;
+  transition: background var(--motion-base) var(--ease-premium);
 }
+.sys-caps .it:hover { background: var(--bg-2); }
+.sys-caps .it:hover .lab { color: color-mix(in oklab, var(--accent) 70%, var(--text)); }
 .sys-caps .it .lab {
   font-family: var(--f-mono);
   font-size: 11px;
@@ -774,7 +822,9 @@ section:first-of-type { border-top: 0; }
 .kb-features .it {
   background: var(--bg);
   padding: 22px;
+  transition: background var(--motion-base) var(--ease-premium);
 }
+.kb-features .it:hover { background: var(--bg-2); }
 .kb-features .it .lab {
   font-family: var(--f-mono); font-size: 11px;
   letter-spacing: 0.08em; text-transform: uppercase;
@@ -1119,6 +1169,14 @@ section:first-of-type { border-top: 0; }
   display: grid; gap: 8px;
   position: relative;
   overflow: hidden;
+  transition: transform var(--motion-base) var(--ease-premium),
+              border-color var(--motion-base) var(--ease-premium),
+              box-shadow var(--motion-base) var(--ease-premium);
+}
+.focus-card:hover {
+  transform: translate3d(0, -2px, 0);
+  border-color: color-mix(in oklab, var(--accent) 55%, var(--line));
+  box-shadow: 0 6px 24px -10px color-mix(in oklab, var(--accent) 30%, transparent);
 }
 .focus-card .lab {
   font-family: var(--f-mono); font-size: 10px;
@@ -1416,9 +1474,23 @@ footer {
   .hero-card .corner.tr, .hero-card .corner.br { right: 4px; }
 }
 
-/* Reduce motion for users who prefer it */
+/* Reduce motion for users who prefer it. Kills:
+   - ticker scroll, grid drift, reveal-on-scroll
+   - hero load-in stagger (elements jump straight to final state)
+   - all hover transforms and box-shadow transitions
+   Disables hover-lift transforms in particular so vestibular users
+   don't get nudged when the cursor crosses cards. */
 @media (prefers-reduced-motion: reduce) {
-  .ticker-row { animation: none; }
+  body::before { animation: none !important; }
+  .ticker-row { animation: none !important; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .hero .hero-status,
+  .hero h1,
+  .hero-tag,
+  .hero-actions,
+  .hero-card { animation: none !important; opacity: 1; transform: none; }
+  .focus-card:hover,
+  .btn:hover,
+  .btn:active { transform: none !important; box-shadow: none !important; }
   * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
