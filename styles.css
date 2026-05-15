@@ -835,6 +835,73 @@ section:first-of-type { border-top: 0; }
 .kb-features .it p { font-size: 13px; }
 
 /* =========================================================
+   SyntheticPen showcase — reuses .pkg-head / .kb-lede /
+   .kb-install / .phil-list / .kb-features. Only the tip line
+   and the pipeline + debug-story framing need scoped rules.
+   ========================================================= */
+.sp-tip {
+  margin: 14px 0 0;
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+}
+.sp-tip a { color: var(--accent); text-decoration: none; }
+.sp-tip a:hover { text-decoration: underline; }
+
+.sp-pipeline { margin-top: 48px; }
+.sp-h {
+  font-family: var(--f-display);
+  font-size: clamp(20px, 2.4vw, 26px);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin: 0 0 6px;
+}
+.sp-pipeline .phil-list { margin-top: 20px; }
+.sp-pipeline .phil-list .it .tx strong { color: var(--text); }
+
+.sp-debug {
+  margin-top: 44px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 28px clamp(22px, 3vw, 36px);
+}
+.sp-debug .lab {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.sp-debug .sp-h { margin-bottom: 14px; }
+.sp-debug p {
+  font-size: 15.5px;
+  line-height: 1.62;
+  color: var(--text-2);
+  max-width: 78ch;
+  margin: 0 0 14px;
+}
+.sp-debug p:last-child { margin-bottom: 0; }
+.sp-debug code {
+  font-family: var(--f-mono);
+  font-size: 13px;
+  color: var(--text);
+  background: var(--surface);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.sp-debug strong { color: var(--text); }
+
+@media (max-width: 720px) {
+  .sp-pipeline { margin-top: 36px; }
+  .sp-debug { margin-top: 32px; padding: 22px 18px; }
+  .sp-debug p { font-size: 14.5px; }
+}
+
+/* =========================================================
    Projects
    ========================================================= */
 .proj-list { display: flex; flex-direction: column; }

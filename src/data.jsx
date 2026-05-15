@@ -10,13 +10,14 @@ const SITE = {
 };
 
 const NAV = [
-  { idx: "01", label: "Top",      href: "#top" },
-  { idx: "02", label: "Stack",    href: "#stack" },
-  { idx: "03", label: "KBlazor",  href: "#kblazor" },
-  { idx: "04", label: "Projects", href: "#projects" },
-  { idx: "05", label: "Skills",   href: "#skills" },
-  { idx: "06", label: "About",    href: "#about" },
-  { idx: "07", label: "Contact",  href: "#contact" },
+  { idx: "01", label: "Top",          href: "#top" },
+  { idx: "02", label: "Stack",        href: "#stack" },
+  { idx: "03", label: "KBlazor",      href: "#kblazor" },
+  { idx: "04", label: "SyntheticPen", href: "#syntheticpen" },
+  { idx: "05", label: "Projects",     href: "#projects" },
+  { idx: "06", label: "Skills",       href: "#skills" },
+  { idx: "07", label: "About",        href: "#about" },
+  { idx: "08", label: "Contact",      href: "#contact" },
 ];
 
 const HERO = {
@@ -163,6 +164,67 @@ const KB_ORDERS = [
   { id: "INV-2045", customer: "WASA Pipeworks",    amount: 12640.00, due: "2026-06-12", status: "ok"   },
   { id: "INV-2046", customer: "Petrotrin Legacy",  amount:  9300.00, due: "2026-05-29", status: "warn" },
 ];
+
+// SyntheticPen showcase — a flagship desktop project. Engineering-led:
+// the centerline pipeline and the err-87 debugging story carry the section.
+// The Microsoft Store submission is in certification (not confirmed live),
+// so downloads point at GitHub releases and the Store status is described,
+// not linked — same honesty pass that scrubbed the old marketing claims.
+const SYNTHETICPEN = {
+  badges: [
+    { label: "syntheticpen.com", href: "https://syntheticpen.com" },
+    { label: "github: kurtnelle/SyntheticPen", href: "https://github.com/kurtnelle/SyntheticPen", amber: true },
+    { label: "privacy policy", href: "https://syntheticpen.com/privacy" },
+  ],
+  store: "Microsoft Store · submitted, in certification",
+  download: { href: "https://github.com/kurtnelle/SyntheticPen/releases" },
+  lede: (
+    <>
+      A free Windows desktop app (Avalonia · .NET 10) that reads vector
+      geometry — <strong>SVG paths and TTF/OTF glyph outlines</strong> — and
+      replays it as <strong>synthetic Windows pen input</strong>. From the
+      operating system's point of view a real pen is drawing, so the motion
+      lands in anything that accepts pointer input: signature fields,
+      OneNote / Whiteboard, PDF signing surfaces.
+    </>
+  ),
+  tip: (
+    <>
+      No SVG handy? Type a phrase at{" "}
+      <a href="https://texttosvg.app/" target="_blank" rel="noreferrer">texttosvg.app</a>
+      , export the SVG, and SyntheticPen draws it. It's free — not a beta.
+    </>
+  ),
+  pipeline: [
+    {
+      h: "Centerline extraction",
+      p: "Filled shapes and thick glyphs collapse to a single drawable stroke: a Felzenszwalb Euclidean distance transform, Zhang–Suen skeletonization, salience-based spur pruning, then junction-aware tracing. Pen pressure is derived from the local stroke radius — the distance-transform value at each point.",
+    },
+    {
+      h: "Human-like motion",
+      p: "Adaptive arc-length resampling and centripetal Catmull–Rom smoothing, driven by a curvature-aware velocity model (the 2/3 power law) so the pen slows through tight curves the way a hand does.",
+    },
+    {
+      h: "Micro-stroke stitching",
+      p: "Fragmented sub-strokes are merged into continuous paths while genuinely isolated marks — the dot on an 'i' — are preserved instead of welded to a neighbour.",
+    },
+  ],
+  debug: {
+    lab: "Debugging · A story worth telling",
+    h: "The InjectionBlockedException",
+    paragraphs: [
+      <>Playback kept dying with a recurring <code>InjectionBlockedException</code> — Win32 error 87, invalid parameter — with nothing obviously wrong in the geometry. Rather than guess, I instrumented the injector to write JSON diagnostics to disk and analysed them after the fact.</>,
+      <>The cause: micro-stroke "catch-up" bursts were firing events faster than the OS synthetic-pointer API would accept, tripping its injection rate limit. The fix was a pacing layer — a minimum inter-event interval plus a contact-settle delay — not a symptom patch that swallowed the exception.</>,
+      <>The irony worth keeping: the marketing site had originally advertised <strong>"1000 Hz"</strong> injection — the exact rate that caused the failures. That claim came out in the pre-launch honesty pass, along with other specs the software didn't actually deliver.</>,
+    ],
+  },
+  features: [
+    { lab: "Vision",   h: "Centerline pipeline", p: "Distance transform + skeletonization + junction-aware tracing turns filled vector art into one drawable, pressure-aware stroke." },
+    { lab: "Motion",   h: "Hand-like replay",    p: "Curvature-aware velocity and Catmull–Rom smoothing so synthetic strokes don't read as machine-straight." },
+    { lab: "Shipping", h: "MSIX · x64 + Arm64",  p: "One signed .msixbundle. It declares the runFullTrust capability because synthetic pointer injection is a full-trust Win32 API the UWP sandbox does not expose." },
+    { lab: "Privacy",  h: "Nothing leaves the machine", p: "No telemetry, no analytics, no network calls, no account — stated plainly in the privacy policy." },
+  ],
+};
 
 const PROJECTS = [
   {
@@ -442,5 +504,6 @@ const FOOTER = {
 
 Object.assign(window, {
   SITE, NAV, HERO, ORIGIN, TICKER, STACK, SYSTEMS_CAPS, KBLAZOR, KB_ORDERS,
-  PROJECTS, SKILLS, SERVICES, ABOUT, PHILOSOPHY, FOCUS, CONTACT, FOOTER,
+  SYNTHETICPEN, PROJECTS, SKILLS, SERVICES, ABOUT, PHILOSOPHY, FOCUS,
+  CONTACT, FOOTER,
 });

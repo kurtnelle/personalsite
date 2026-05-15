@@ -419,6 +419,74 @@ function KBlazorSection({ theme }) {
   );
 }
 
+// ── SyntheticPen showcase ──────────────────────────────────────────────────
+// Flagship desktop project, engineering-led. No screenshots — type-driven,
+// reusing the KBlazor showcase classes. The centerline pipeline and the
+// err-87 debugging story carry the section.
+function SyntheticPenSection() {
+  const SP = SYNTHETICPEN;
+  return (
+    <section className="wrap" id="syntheticpen">
+      <div className="sec-label">SyntheticPen · Synthetic Windows pen input</div>
+      <div className="pkg-head">
+        <h2>
+          Make the OS think a <span className="serif">real pen</span> is drawing.
+        </h2>
+        <div className="meta">
+          {SP.badges.map((b) => (
+            <div key={b.label}>
+              <a className={"badge" + (b.amber ? " amber" : "")}
+                 href={b.href} target="_blank" rel="noreferrer">
+                {b.label} <span>→</span>
+              </a>
+            </div>
+          ))}
+          <div style={{ marginTop: 8 }}>{SP.store}</div>
+        </div>
+      </div>
+
+      <p className="kb-lede">{SP.lede}</p>
+
+      <div className="kb-install" role="group" aria-label="Download SyntheticPen">
+        <span className="kb-install-prompt">↓</span>
+        <code>SyntheticPen · MSIX · x64 + Arm64 · free</code>
+        <a className="kb-install-link"
+           href={SP.download.href}
+           target="_blank" rel="noreferrer">releases →</a>
+      </div>
+      <p className="sp-tip">{SP.tip}</p>
+
+      <div className="sp-pipeline reveal">
+        <h3 className="sp-h">From filled shape to a single hand-drawn stroke</h3>
+        <div className="phil-list">
+          {SP.pipeline.map((s, i) => (
+            <div className="it" key={s.h}>
+              <span className="ix">{String(i + 1).padStart(2, "0")}</span>
+              <span className="tx"><strong>{s.h}.</strong> {s.p}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="sp-debug reveal">
+        <div className="lab">{SP.debug.lab}</div>
+        <h3 className="sp-h">{SP.debug.h}</h3>
+        {SP.debug.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+      </div>
+
+      <div className="kb-features">
+        {SP.features.map((f) => (
+          <div className="it" key={f.h}>
+            <div className="lab">{f.lab}</div>
+            <h4>{f.h}</h4>
+            <p>{f.p}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 // ── Projects ───────────────────────────────────────────────────────────────
 function Projects() {
   const [open, setOpen] = useState(null);
@@ -690,6 +758,7 @@ function App() {
         <Origin />
         <Stack />
         <KBlazorSection theme={theme} />
+        <SyntheticPenSection />
         <Projects />
         <Skills />
         <Services />
