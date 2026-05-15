@@ -477,8 +477,10 @@ const FOCUS = [
 const CONTACT = [
   { k: "GitHub",      v: "github.com/kurtnelle",       href: "https://github.com/kurtnelle" },
   { k: "LinkedIn",    v: "linkedin.com/in/kurtnelle",  href: "https://www.linkedin.com/in/kurtnelle" },
-  { k: "KBlazor",     v: "kblazor.com",                href: "https://kblazor.com" },
-  { k: "Photography", v: "kurtnelle.pixieset.com",     href: "https://kurtnelle.pixieset.com/" },
+  { k: "KBlazor",      v: "kblazor.com",               href: "https://kblazor.com" },
+  { k: "Receiva",      v: "receiva.app",               href: "https://receiva.app/" },
+  { k: "SyntheticPen", v: "syntheticpen.com",          href: "https://syntheticpen.com" },
+  { k: "Photography",  v: "kurtnelle.pixieset.com",    href: "https://kurtnelle.pixieset.com/" },
 ];
 
 const FOOTER = {
