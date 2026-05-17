@@ -4,7 +4,7 @@
 const SITE = {
   name: "Shawn Kurtnelle Lewis",
   brand: "SKL",
-  role: "Augmented Software Engineer · Systems Architect",
+  role: "Augmented Software Engineer",
   location: "Port of Spain, Trinidad & Tobago",
   availability: "Open to projects · Q3 2026",
 };
@@ -34,9 +34,10 @@ const HERO = {
   ],
   tag: (
     <>
-      I'm an augmented software engineer and systems architect based in Trinidad. I build
-      <strong> both sides of the fiber optic</strong> — the .NET applications
-      that run the business and the embedded systems that run the machines.
+      I'm an augmented software engineer and systems architect in Trinidad. I
+      build for <strong>both sides of fibre optic</strong>: the .NET
+      applications that run the cloud, and the embedded systems that run the
+      devices.
     </>
   ),
   meta: [
@@ -53,23 +54,22 @@ const AUGMENTED = {
   label: "Augmented software engineering · In practice",
   body: (
     <>
-      Augmented software engineering is engineering with AI woven through the
-      toolchain — code generation, agentic workflows, AI-traceable runtimes —
-      used as infrastructure, not as a party trick. It changes how the work
-      gets done, not who is accountable for it: the architecture, the
-      trade-offs, and the correctness still have to be reasoned about and
-      owned, because in the systems I build,{" "}
-      <span className="serif">being wrong has consequences in the real world.</span>
+      Augmented Software Engineering weaves AI through the toolchain. Code
+      generation, agentic workflows, and AI-traceable runtimes serve as
+      infrastructure. This changes how the work gets done, not who is
+      accountable: architecture, trade-offs, and correctness still must be
+      reasoned about and owned. In the systems I build,{" "}
+      <span className="serif">being wrong has real-world consequences.</span>
     </>
   ),
   kicker: "Leverage, without losing the plot.",
 };
 
 const ORIGIN = {
-  caption: "Present-day bench. Some of the same chips, some of the same friends. The white sphere in back is a coaxial spherical parallel manipulator — printed, not yet assembled.",
+  caption: "Present-day bench. Some of the same chips, some of the same friends. The white sphere in the back is a printed, unassembled coaxial spherical parallel manipulator.",
   paragraphs: [
-    <><strong>Hardware came first.</strong> In the early 2000s a friend and I built our own PIC16 programmer from a published schematic — the commercial one from Microchip wasn't reachable from where we were — and programmed our first chips in assembly. I still have that board. It kept an ember alive through years of writing Visual Basic and SharePoint workflows by day.</>,
-    <>A LEGO Mindstorms kit, picked up at MicroCenter in Cambridge, turned the ember into a flame. Then GHI Electronics released the FEZ family — managed C# running on bare metal — and suddenly I had a way to be in both worlds at once. I've been on their forums and using their boards ever since. My L6470 stepper-driver code has shipped in a commercial product in Florida — handed off to a friend who needed it to close out a project. Locally though, no one has commissioned a full embedded build from me directly yet; the market here is risk-averse, and the bench has stayed alive regardless.</>,
+    <><strong>Hardware came first.</strong> In the early 2000s, a friend and I built our own PIC16 programmer from a schematic—Microchip's was not accessible—and programmed our first chips in assembly. I still have that board. It kept my interest alive through years of writing Visual Basic and SharePoint workflows by day.</>,
+    <>A LEGO Mindstorms kit from MicroCenter in Cambridge ignited my interest. Then GHI Electronics released the FEZ family—managed C# on bare metal. Suddenly, I was in both worlds. I've been on their forums and using their boards ever since. My L6470 stepper driver code shipped with a commercial product in Florida; I handed it to a friend to close out a project. Locally, no one has commissioned a dedicated embedded build from me yet. The market here is risk-averse, but the bench remains active.</>,
   ],
 };
 
@@ -87,22 +87,22 @@ const SYSTEMS_CAPS = [
   {
     lab: "Industrial HMI",
     h:   "Blazor operator interfaces",
-    p:   "Touch-first front-ends that talk directly to real machines — buttons, alarms, motion plots, recipe management.",
+    p:   "Touch-first front-ends talk directly to real machines: buttons, alarms, motion plots, recipe management (G-code).",
   },
   {
     lab: "Motion Control",
     h:   "Firmware up",
-    p:   "Stepper / servo control, kinematics, L6470 drivers, CAN bus topologies, deterministic real-time loops on STM32.",
+    p:   "Stepper or servo control, kinematics, L6470 drivers, CAN bus topologies, deterministic real-time loops on STM32.",
   },
   {
     lab: "Floor ↔ Office",
     h:   "Enterprise data bridges",
-    p:   "ETL pipelines, reconciliation, and SCADA-to-ERP integrations that keep operational data trustworthy across the seam.",
+    p:   "ETL pipelines, reconciliation, and SCADA-to-ERP integrations keep operational data trustworthy across the seam.",
   },
   {
     lab: "Offline-first",
     h:   "Field operations software",
-    p:   "PWAs and local-first tools that work without the network, sync cleanly when it returns, and survive unscheduled power cuts.",
+    p:   "PWAs and local-first tools work offline. They sync cleanly when it returns and survive unscheduled power cuts.",
   },
 ];
 
@@ -194,16 +194,16 @@ const SYNTHETICPEN = {
     { label: "github: kurtnelle/SyntheticPen", href: "https://github.com/kurtnelle/SyntheticPen", amber: true },
     { label: "privacy policy", href: "https://syntheticpen.com/privacy" },
   ],
-  store: "Microsoft Store · submitted, in certification",
+  store: "Microsoft Store · submitted for certification",
   download: { href: "https://github.com/kurtnelle/SyntheticPen/releases" },
   lede: (
     <>
-      A free Windows desktop app (Avalonia · .NET 10) that reads vector
-      geometry — <strong>SVG paths and TTF/OTF glyph outlines</strong> — and
-      replays it as <strong>synthetic Windows pen input</strong>. From the
-      operating system's point of view a real pen is drawing, so the motion
-      lands in anything that accepts pointer input: signature fields,
-      OneNote / Whiteboard, PDF signing surfaces.
+      A free Windows desktop app (Avalonia, .NET 10) reads vector geometry —
+      <strong> SVG paths and TTF/OTF glyph outlines</strong> — and replays it
+      as <strong>synthetic Windows pen input</strong>. From the operating
+      system's point of view, a real pen is drawing. The motion can be used
+      with anything that accepts pointer input: signature fields,
+      OneNote/Whiteboard, and PDF signing surfaces.
     </>
   ),
   tip: (
@@ -216,7 +216,7 @@ const SYNTHETICPEN = {
   pipeline: [
     {
       h: "Centerline extraction",
-      p: "Filled shapes and thick glyphs collapse to a single drawable stroke: a Felzenszwalb Euclidean distance transform, Zhang–Suen skeletonization, salience-based spur pruning, then junction-aware tracing. Pen pressure is derived from the local stroke radius — the distance-transform value at each point.",
+      p: "Filled shapes and thick glyphs collapse to a single drawable stroke: a Felzenszwalb Euclidean distance transform, Zhang–Suen skeletonisation, salience-based spur pruning, then junction-aware tracing. Pen pressure is derived from the local stroke radius — the distance-transform value at each point.",
     },
     {
       h: "Human-like motion",
@@ -231,15 +231,15 @@ const SYNTHETICPEN = {
     lab: "Debugging · A story worth telling",
     h: "The InjectionBlockedException",
     paragraphs: [
-      <>Playback kept dying with a recurring <code>InjectionBlockedException</code> — Win32 error 87, invalid parameter — with nothing obviously wrong in the geometry. Rather than guess, I instrumented the injector to write JSON diagnostics to disk and analysed them after the fact.</>,
+      <>Playback kept dying with a recurring <code>InjectionBlockedException</code> — Win32 error 87, invalid parameter, with nothing obviously wrong in the geometry. Rather than guess, I instrumented the injector to write JSON diagnostics to disk and analysed them after the fact. (The AI seemed proud of this, so I kept it in the text. It was a hard-won victory.)</>,
       <>The cause: micro-stroke "catch-up" bursts were firing events faster than the OS synthetic-pointer API would accept, tripping its injection rate limit. The fix was a pacing layer — a minimum inter-event interval plus a contact-settle delay — not a symptom patch that swallowed the exception.</>,
-      <>The irony worth keeping: the marketing site had originally advertised <strong>"1000 Hz"</strong> injection — the exact rate that caused the failures. That claim came out in the pre-launch honesty pass, along with other specs the software didn't actually deliver.</>,
+      <>The irony worth keeping: the marketing site originally intended <strong>"1000 Hz"</strong> injection—the exact rate that caused the failures. Turns out the inking input system can not accept input at that speed, so the input was reduced to something that looks almost as fast as a person could input.</>,
     ],
   },
   features: [
-    { lab: "Vision",   h: "Centerline pipeline", p: "Distance transform + skeletonization + junction-aware tracing turns filled vector art into one drawable, pressure-aware stroke." },
+    { lab: "Vision",   h: "Centerline pipeline", p: "Distance transform + skeletonisation + junction-aware tracing turn filled vector art into a single drawable, pressure-aware stroke." },
     { lab: "Motion",   h: "Hand-like replay",    p: "Curvature-aware velocity and Catmull–Rom smoothing so synthetic strokes don't read as machine-straight." },
-    { lab: "Shipping", h: "MSIX · x64 + Arm64",  p: "One signed .msixbundle. It declares the runFullTrust capability because synthetic pointer injection is a full-trust Win32 API the UWP sandbox does not expose." },
+    { lab: "Shipping", h: "MSIX · x64 + Arm64",  p: "One signed .msixbundle. It declares the runFullTrust capability because synthetic pointer injection is a full-trust Win32 API that the UWP sandbox does not expose." },
     { lab: "Privacy",  h: "Nothing leaves the machine", p: "No telemetry, no analytics, no network calls, no account — stated plainly in the privacy policy." },
   ],
 };
@@ -302,7 +302,7 @@ const PROJECTS = [
     num: "05",
     name: "KPI Dashboard",
     tag: "Jan 2019 – Jun 2019",
-    lede: "Implemented complex KPIs in Microsoft Power BI to track critical metrics for the customer's engineering department.",
+    lede: "Implemented complex KPIs in Microsoft Power BI to track critical metrics for the entire organisation, one department at a time.",
     features: [
       "Complex KPI calculations",
       "Power BI dashboarding",
@@ -314,7 +314,7 @@ const PROJECTS = [
     num: "06",
     name: "Dynamics CRM → GP Integration",
     tag: "2016 – 2022",
-    lede: "T-SQL based ETL preparing Microsoft Dynamics CRM data for integration with Dynamics GP. Re-ran year on year as each new business unit was onboarded.",
+    lede: "T-SQL-based ETL preparing Microsoft Dynamics CRM data for integration with Dynamics GP. Re-ran year on year as each new business unit (brand) was onboarded.",
     features: [
       "T-SQL ETL pipelines",
       "Dynamics CRM → Dynamics GP transformation",
@@ -458,9 +458,9 @@ const SERVICES = [
 
 const ABOUT = {
   paragraphs: [
-    <>I'm an augmented software engineer and systems architect based in <strong>Trinidad &amp; Tobago</strong>. I've been shipping production software on the Microsoft stack since <strong>2003</strong> — over two decades through VB.NET, SharePoint workflows, ASP.NET, BI / ETL pipelines, Blazor, and the embedded firmware that talks to all of it.</>,
+    <>I'm an augmented software engineer and systems architect based in <strong>Trinidad &amp; Tobago</strong>. I've been shipping production software on the Microsoft stack since <strong>2003</strong> — over two decades, spanning VB.NET, SharePoint workflows, ASP.NET, BI/ETL pipelines, Blazor, and the embedded firmware that talks to all of it.</>,
     <>The work I do best sits where most teams have a seam: enterprise applications on one side, the physical machines and instruments they depend on the other. I design for the seam. ETL platforms, reconciliation systems, CNC and robotics architectures, offline-first PWAs, motion controllers — same engineer, same toolbox.</>,
-    <>I enjoy problems where software, hardware, networking, and automation have to agree on something — and where being wrong has consequences in the real world.</>,
+    <>I enjoy problems where software, hardware, networking, and automation must agree on something — and where being wrong has real-world consequences.</>,
     <em className="serif">And every brilliant idea belongs to God first.</em>,
   ],
 };

@@ -286,14 +286,14 @@ function Stack() {
             Every layer. <span className="serif">Same engineer.</span>
           </h2>
           <p>
-            From the Azure region to the bus wires soldered onto an STM32, I
-            work every layer in the diagram on the right. The seams between
-            layers are where most projects fail — that's where I spend my time.
+            I work on every layer, from Azure to STM32 bus wires. Most
+            projects fail at the seams between layers. I focus my efforts
+            there.
           </p>
           <p>
-            I design hardware and software as a <strong>single problem</strong>,
-            not as two teams sliding tickets across an org chart. The result is
-            systems that survive contact with the real world.
+            I design hardware and software as a <strong>single problem</strong>.
+            I don't treat it as two teams sliding tickets across an org chart.
+            The result is systems that survive contact with the real world.
           </p>
         </div>
         <div className="stack-vis reveal">
@@ -359,9 +359,9 @@ function KBlazorSection({ theme }) {
         </div>
       </div>
       <p className="kb-lede">
-        A multi-view data architecture for Blazor.
-        One <code>IQueryable&lt;T&gt;</code> renders simultaneously as
-        Table, Card, or Kanban — without rewriting the data layer.
+        A multi-view data architecture for Blazor. One{" "}
+        <code>IQueryable&lt;T&gt;</code> can render simultaneously as a Table,
+        Card, or Kanban. No need to rewrite the data layer.
       </p>
       <div className="kb-install" role="group" aria-label="Install KBlazor">
         <span className="kb-install-prompt">$</span>
@@ -476,7 +476,7 @@ function SyntheticPenSection() {
       <p className="sp-tip">{SP.tip}</p>
 
       <div className="sp-pipeline reveal">
-        <h3 className="sp-h">From filled shape to a single hand-drawn stroke</h3>
+        <h3 className="sp-h">From a filled shape to a single hand-drawn stroke</h3>
         <div className="phil-list">
           {SP.pipeline.map((s, i) => (
             <div className="it" key={s.h}>
@@ -699,7 +699,7 @@ function Contact() {
     <section className="wrap contact" id="contact">
       <div className="sec-label">Contact · Say hello</div>
       <p className="contact-sig">
-        I build on both sides of the <span className="serif">fiber optic.</span>
+        I build on both sides of the <span className="serif">fibre optic.</span>
       </p>
       <h2>
         Let's build <span className="serif">something.</span>
