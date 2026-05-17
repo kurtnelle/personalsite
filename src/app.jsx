@@ -102,6 +102,25 @@ function Hero() {
   const time = __TIME_FMT.format(now);
   return (
     <section className="hero wrap" id="top">
+      <div className="hero-bg" aria-hidden="true">
+        <video
+          className="hero-bg-video"
+          src="assets/hero-bg.mp4"
+          poster="assets/hero-bg-poster.jpg"
+          autoPlay
+          loop
+          playsInline
+          preload="auto"
+          ref={(el) => {
+            if (el) {
+              el.muted = true;
+              const p = el.play && el.play();
+              if (p && p.catch) p.catch(() => {});
+            }
+          }}
+        />
+      </div>
+      <div className="hero-scrim" aria-hidden="true" />
       <div className="hero-status">
         <span className="pill">
           <span className="dot" />
@@ -744,6 +763,19 @@ function Footer() {
   );
 }
 
+// ── Augmented software engineering (definition band) ───────────────────────
+// Sits directly under the hero. Defines the practice behind the role line
+// in the hero tagline. Reuses .sec-label; scoped .aug-* for the rest.
+function AugmentedDef() {
+  return (
+    <section className="wrap aug" id="augmented">
+      <div className="sec-label">{AUGMENTED.label}</div>
+      <p className="aug-body reveal">{AUGMENTED.body}</p>
+      <p className="aug-kicker reveal">{AUGMENTED.kicker}</p>
+    </section>
+  );
+}
+
 // ── App ────────────────────────────────────────────────────────────────────
 function App() {
   const [theme, toggleTheme] = useTheme();
@@ -753,6 +785,7 @@ function App() {
       <TopNav theme={theme} onToggleTheme={toggleTheme} />
       <main>
         <Hero />
+        <AugmentedDef />
         <Ticker />
         <Credentials />
         <Origin />

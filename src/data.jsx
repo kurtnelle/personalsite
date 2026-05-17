@@ -47,6 +47,24 @@ const HERO = {
   ],
 };
 
+// Compact band under the hero. Defines the *practice* (not the persona)
+// so the term reads as engineering, not "vibe coding" / "prompt engineer".
+const AUGMENTED = {
+  label: "Augmented software engineering · In practice",
+  body: (
+    <>
+      Augmented software engineering is engineering with AI woven through the
+      toolchain — code generation, agentic workflows, AI-traceable runtimes —
+      used as infrastructure, not as a party trick. It changes how the work
+      gets done, not who is accountable for it: the architecture, the
+      trade-offs, and the correctness still have to be reasoned about and
+      owned, because in the systems I build,{" "}
+      <span className="serif">being wrong has consequences in the real world.</span>
+    </>
+  ),
+  kicker: "Leverage, without losing the plot.",
+};
+
 const ORIGIN = {
   caption: "Present-day bench. Some of the same chips, some of the same friends. The white sphere in back is a coaxial spherical parallel manipulator — printed, not yet assembled.",
   paragraphs: [
@@ -505,7 +523,7 @@ const FOOTER = {
 };
 
 Object.assign(window, {
-  SITE, NAV, HERO, ORIGIN, TICKER, STACK, SYSTEMS_CAPS, KBLAZOR, KB_ORDERS,
-  SYNTHETICPEN, PROJECTS, SKILLS, SERVICES, ABOUT, PHILOSOPHY, FOCUS,
-  CONTACT, FOOTER,
+  SITE, NAV, HERO, AUGMENTED, ORIGIN, TICKER, STACK, SYSTEMS_CAPS, KBLAZOR,
+  KB_ORDERS, SYNTHETICPEN, PROJECTS, SKILLS, SERVICES, ABOUT, PHILOSOPHY,
+  FOCUS, CONTACT, FOOTER,
 });

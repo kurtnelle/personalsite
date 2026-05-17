@@ -209,6 +209,59 @@ section:first-of-type { border-top: 0; }
    ========================================================= */
 .hero { padding-top: clamp(80px, 10vw, 140px); padding-bottom: clamp(80px, 10vw, 140px); }
 
+/* Hero background video — theme-split. Dark (default :root) = raw
+   cinematic clip + strong scrim; light = inverted "airy" clip + lighter
+   scrim. The filter sits on .hero-bg so the <video> and its poster
+   fallback invert together; .hero-scrim is a separate sibling so the
+   scrim colours are never inverted. Full-bleed via 100vw (body has
+   overflow-x:hidden, so no scrollbar artefact). */
+.hero { position: relative; isolation: isolate; }
+.hero > :not(.hero-bg):not(.hero-scrim) { position: relative; z-index: 2; }
+
+.hero-bg,
+.hero-scrim {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-bg {
+  z-index: 0;
+  background: #0c0e12 url("assets/hero-bg-poster.jpg") center / cover no-repeat;
+}
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-scrim {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(8,10,14,0.82) 0%, rgba(8,10,14,0.46) 55%, rgba(8,10,14,0.24) 100%),
+    linear-gradient(180deg, transparent 0%, transparent 55%, var(--bg) 100%);
+}
+html[data-theme="light"] .hero-bg {
+  filter: invert(1) hue-rotate(180deg) saturate(0.8) brightness(1.03);
+}
+html[data-theme="light"] .hero-scrim {
+  background:
+    linear-gradient(90deg,
+      color-mix(in oklab, var(--bg) 55%, transparent) 0%,
+      color-mix(in oklab, var(--bg) 18%, transparent) 55%,
+      transparent 100%),
+    linear-gradient(180deg, transparent 0%, transparent 45%, var(--bg) 100%);
+}
+@media (prefers-reduced-motion: reduce), (max-width: 560px) {
+  .hero-bg-video { display: none; }
+}
+
 /* Hero load-in stagger — typography first, supporting elements after.
    `backwards` fill keeps the elements invisible before their delay fires
    so the page doesn't flash unstyled content. */
@@ -899,6 +952,37 @@ section:first-of-type { border-top: 0; }
   .sp-pipeline { margin-top: 36px; }
   .sp-debug { margin-top: 32px; padding: 22px 18px; }
   .sp-debug p { font-size: 14.5px; }
+}
+
+/* =========================================================
+   Augmented software engineering — compact band under the hero.
+   Reuses .sec-label; .aug overrides the default section padding
+   so it reads as a band, not a full section.
+   ========================================================= */
+.aug { padding-top: 34px; padding-bottom: 38px; }
+.aug-body {
+  margin-top: 18px;
+  max-width: 64ch;
+  font-size: clamp(17px, 1.55vw, 20px);
+  line-height: 1.62;
+  color: var(--text-2);
+}
+.aug-body .serif {
+  font-family: var(--f-serif);
+  font-style: italic;
+  color: var(--accent);
+}
+.aug-kicker {
+  margin-top: 18px;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(21px, 2vw, 27px);
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+@media (max-width: 720px) {
+  .aug { padding-top: 24px; padding-bottom: 28px; }
+  .aug-body { font-size: 16px; }
 }
 
 /* =========================================================
