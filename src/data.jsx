@@ -4,7 +4,7 @@
 const SITE = {
   name: "Shawn Kurtnelle Lewis",
   brand: "SKL",
-  role: "Software Engineer · Systems Architect",
+  role: "Augmented Software Engineer · Systems Architect",
   location: "Port of Spain, Trinidad & Tobago",
   availability: "Open to projects · Q3 2026",
 };
