@@ -34,7 +34,7 @@ const HERO = {
   ],
   tag: (
     <>
-      I'm a software engineer and systems architect based in Trinidad. I build
+      I'm an augmented software engineer and systems architect based in Trinidad. I build
       <strong> both sides of the fiber optic</strong> — the .NET applications
       that run the business and the embedded systems that run the machines.
     </>
@@ -440,7 +440,7 @@ const SERVICES = [
 
 const ABOUT = {
   paragraphs: [
-    <>I'm a software engineer and systems architect based in <strong>Trinidad &amp; Tobago</strong>. I've been shipping production software on the Microsoft stack since <strong>2003</strong> — over two decades through VB.NET, SharePoint workflows, ASP.NET, BI / ETL pipelines, Blazor, and the embedded firmware that talks to all of it.</>,
+    <>I'm an augmented software engineer and systems architect based in <strong>Trinidad &amp; Tobago</strong>. I've been shipping production software on the Microsoft stack since <strong>2003</strong> — over two decades through VB.NET, SharePoint workflows, ASP.NET, BI / ETL pipelines, Blazor, and the embedded firmware that talks to all of it.</>,
     <>The work I do best sits where most teams have a seam: enterprise applications on one side, the physical machines and instruments they depend on the other. I design for the seam. ETL platforms, reconciliation systems, CNC and robotics architectures, offline-first PWAs, motion controllers — same engineer, same toolbox.</>,
     <>I enjoy problems where software, hardware, networking, and automation have to agree on something — and where being wrong has consequences in the real world.</>,
     <em className="serif">And every brilliant idea belongs to God first.</em>,
