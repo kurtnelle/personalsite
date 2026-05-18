@@ -1,6 +1,6 @@
 # shawnklewis.com
 
-Personal site for Shawn K. Lewis — software engineer / systems architect.
+Personal site for Shawn Kurtnelle Lewis — augmented software engineer / systems architect.
 
 Static, zero-build. JSX is transpiled in the browser via Babel-standalone, so the source ships as-is.
 
